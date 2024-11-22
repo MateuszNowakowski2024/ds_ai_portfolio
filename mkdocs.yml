@@ -1,0 +1,16 @@
+site_name: My Projects
+site_author: Mateusz Nowakowski
+site_description: >-
+    Portfolio of my great projects in Data Science and Artificial Intelligence!
+
+theme:
+  name: material
+
+nav:
+- Home: index.md
+- Current project:
+  - "Prompt Master": prompt_master/index.md
+- Previous projects:
+  - "Running Time Estimator": running_time_estimator/index.md
+  - "Iris": iris/index.md
+  - "Titanic": titanic/index.md
