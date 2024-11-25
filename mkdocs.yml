@@ -3,14 +3,29 @@ site_author: Mateusz Nowakowski
 site_description: >-
     Portfolio of my great projects in Data Science and Artificial Intelligence!
 
+repo_name: MateuszNowakowski2024/ds_ai_portfolio
+repo_url: https://github.com/MateuszNowakowski2024/ds_ai_portfolio.git
+
 theme:
   name: material
-
+  palette:
+    - scheme: slate
+      primary: black
+      accent: teal
+    
+  
 nav:
 - Home: index.md
-- Current project:
+- Current projects:
   - "Prompt Master": prompt_master/index.md
+  - "Lily 2.0": lily_2_0/index.md
 - Previous projects:
-  - "Running Time Estimator": running_time_estimator/index.md
+  - "Lily 1.0": lily_1_0/index.md
+  - "Running Time Estimator": estimator/index.md
   - "Iris": iris/index.md
   - "Titanic": titanic/index.md
+
+
+
+
+
