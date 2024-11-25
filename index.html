@@ -14,7 +14,7 @@
       
       
       
-        <link rel="next" href="iris/">
+        <link rel="next" href="prompt_master/">
       
       
       <link rel="icon" href="assets/images/favicon.png">
@@ -27,6 +27,9 @@
     
     
       <link rel="stylesheet" href="assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -55,7 +58,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -107,6 +117,18 @@
       </div>
     </div>
     
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
@@ -150,6 +172,18 @@
 </div>
     
     
+      <div class="md-header__source">
+        <a href="https://github.com/MateuszNowakowski2024/ds_ai_portfolio.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MateuszNowakowski2024/ds_ai_portfolio
+  </div>
+</a>
+      </div>
+    
   </nav>
   
 </header>
@@ -183,6 +217,18 @@
     </a>
     My Projects
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/MateuszNowakowski2024/ds_ai_portfolio.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MateuszNowakowski2024/ds_ai_portfolio
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -248,20 +294,110 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
+  <a href="#projects-overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Commands
+      Projects Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Projects Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current Projects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Current Projects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prompt-master" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prompt Master
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#lily-20" class="md-nav__link">
     <span class="md-ellipsis">
-      Project Layout
+      Lily 2.0
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#previous-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Previous Projects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Previous Projects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lily-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lily 1.0
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-time-estimator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running Time Estimator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iris-eda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iris EDA
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#titanic-eda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Titanic EDA
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technologies-and-skills-utilized" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technologies and Skills Utilized
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -294,7 +430,7 @@
             
   
   <span class="md-ellipsis">
-    Current project
+    Current projects
   </span>
   
 
@@ -304,7 +440,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Current project
+            Current projects
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -315,11 +451,32 @@
   
   
     <li class="md-nav__item">
-      <a href="prompt_master/index.md" class="md-nav__link">
+      <a href="prompt_master/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Prompt Master
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lily_2_0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lily 2.0
   </span>
   
 
@@ -378,7 +535,28 @@
   
   
     <li class="md-nav__item">
-      <a href="running_time_estimator/index.md" class="md-nav__link">
+      <a href="lily_1_0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lily 1.0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="estimator/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -420,7 +598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="titanic/index.md" class="md-nav__link">
+      <a href="titanic/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -477,20 +655,110 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
+  <a href="#projects-overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Commands
+      Projects Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Projects Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current Projects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Current Projects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prompt-master" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prompt Master
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#lily-20" class="md-nav__link">
     <span class="md-ellipsis">
-      Project Layout
+      Lily 2.0
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#previous-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Previous Projects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Previous Projects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lily-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lily 1.0
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-time-estimator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running Time Estimator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iris-eda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iris EDA
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#titanic-eda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Titanic EDA
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technologies-and-skills-utilized" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technologies and Skills Utilized
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -508,26 +776,46 @@
                 
                   
 
+  
+  
+
 
 <h1 id="welcome-to-my-portfolio">Welcome to My Portfolio</h1>
 <h2 id="about-me">About Me</h2>
 <p>Hello! I'm Mateusz Nowakowski, a passionate data scientist and AI enthusiast. This portfolio showcases my work in data science and artificial intelligence, where I apply cutting-edge techniques to solve real-world problems.</p>
-<h2 id="commands">Commands</h2>
-<p>Here are some useful commands for working with MkDocs:</p>
+<h2 id="projects-overview">Projects Overview</h2>
+<h3 id="current-projects">Current Projects</h3>
+<h4 id="prompt-master">Prompt Master</h4>
+<p><strong>Transforming AI Interactions</strong>
+PromptMaster is a tool designed to simplify how users create and manage prompts for Large Language Models (LLMs). It aims to make interactions with AI clearer and more effective. Key features include easy input via text or voice, smart editing, organized project management, session management, and output modification. This tool is essential for professionals, educators, and creatives looking to enhance their AI interactions.</p>
+<h4 id="lily-20">Lily 2.0</h4>
+<p><strong>Revolutionizing Coloring Experiences for Kids</strong>
+Lily 2.0 is the next-generation version of my coloring book app, Lily 1.0. It integrates advanced AI and voice command features, making it more interactive and user-friendly for children and their guardians. Key features include voice-activated interaction, AI-driven coloring, interactive coloring, and a user-friendly design. Lily 2.0 transforms traditional coloring books into an engaging, voice-controlled experience powered by AI.</p>
+<h3 id="previous-projects">Previous Projects</h3>
+<h4 id="lily-10">Lily 1.0</h4>
+<p><strong>Advanced Coloring Book Generator</strong>
+Lily 1.0 is a cutting-edge coloring book generator designed for children. It blends a user-friendly interface with sophisticated backend technologies to inspire creativity and provide endless fun. Key features include an intuitive interface, interactive chat assistant, and three generation options: random coloring page, description-based coloring page, and photo to coloring page. The app utilizes advanced AI integration, machine learning, and image processing to deliver a seamless experience.</p>
+<h4 id="running-time-estimator">Running Time Estimator</h4>
+<p><strong>Half Marathon Time Predictor App</strong>
+This app predicts half marathon completion times based on user inputs, incorporating BMI-based time offsetting for refined accuracy. It offers real-time monitoring and logging, cloud storage, and user assistance through AI mode. The app leverages technologies like Jupyter Lab, Pandas, PyCaret, AWS S3, and Langfuse for data analysis, cloud services, and monitoring.</p>
+<h4 id="iris-eda">Iris EDA</h4>
+<p><strong>Exploratory Data Analysis on the Iris Dataset</strong>
+This project involves performing an exploratory data analysis (EDA) on the famous Iris dataset. The analysis includes data visualization, statistical analysis, and machine learning techniques to uncover patterns and insights within the data. Key features include interactive visualizations, detailed statistical summaries, and predictive modeling using Scikit-learn.</p>
+<h4 id="titanic-eda">Titanic EDA</h4>
+<p><strong>Exploratory Data Analysis on the Titanic Dataset</strong>
+This project focuses on conducting an exploratory data analysis (EDA) on the Titanic dataset. The analysis aims to understand the factors that influenced passenger survival rates. Key features include data cleaning, feature engineering, visualization of survival statistics, and predictive modeling using machine learning algorithms.</p>
+<h3 id="technologies-and-skills-utilized">Technologies and Skills Utilized</h3>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li><strong>Programming Languages</strong>: Python</li>
+<li><strong>Machine Learning &amp; AI</strong>: PyCaret, Scikit-learn, GPT-4o-mini, DALL-E 3, Whisper 1, PyTorch</li>
+<li><strong>Data Analysis &amp; Manipulation</strong>: Jupyter Lab, Pandas, Matplotlib, Seaborn, Plotly, SciPy</li>
+<li><strong>Cloud Services</strong>: AWS S3, Qdrant, Langfuse, Streamlit</li>
+<li><strong>Image Processing</strong>: Scikit-image, PIL, KMeans clustering</li>
+<li><strong>Development &amp; Version Control</strong>: GitHub</li>
+<li><strong>Real-Time Monitoring</strong>: Langfuse</li>
+<li><strong>Web Development</strong>: HTML, CSS, Streamlit</li>
 </ul>
-<h2 id="project-layout">Project Layout</h2>
-<p>The typical layout of an MkDocs project is as follows:</p>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images, and other files.
-</code></pre>
-<p>For full documentation, visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
+<p>This portfolio highlights my ability to apply advanced data science and AI techniques to create innovative solutions. From enhancing AI interactions to developing engaging educational tools, my projects demonstrate a commitment to leveraging technology for impactful results.</p>
 
 
 
