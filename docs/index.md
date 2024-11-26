@@ -1,8 +1,12 @@
 # Welcome to My Portfolio
-
+![portfolio_wallpaper_6](images/portfolio_wallpaper_6.png)
 ## About Me
 
-Hello! I'm Mateusz Nowakowski, a passionate data scientist and AI enthusiast. This portfolio showcases my work in data science and artificial intelligence, where I apply cutting-edge techniques to solve real-world problems.
+Hello! My name is Mateusz Nowakowski, and I am a passionate data scientist and AI enthusiast. This portfolio showcases my work in data science and artificial intelligence, where I apply cutting-edge techniques to solve real-world problems.
+
+
+
+<a href="https://mateusznowakowski2024.github.io/ds_ai_portfolio/docs/contact/" class="md-button md-button--primary">Get in Touch</a>
 
 ## Projects Overview
 
@@ -46,6 +50,9 @@ This project focuses on conducting an exploratory data analysis (EDA) on the Tit
 - **Web Development**: HTML, CSS, Streamlit
 
 This portfolio highlights my ability to apply advanced data science and AI techniques to create innovative solutions. From enhancing AI interactions to developing engaging educational tools, my projects demonstrate a commitment to leveraging technology for impactful results.
+
+<a href="https://mateusznowakowski2024.github.io/ds_ai_portfolio/docs/contact/" class="md-button md-button--primary">Get in Touch</a>
+
 
 
 
