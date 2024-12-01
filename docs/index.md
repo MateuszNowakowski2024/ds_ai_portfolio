@@ -6,7 +6,7 @@ Hello! My name is Mateusz Nowakowski, and I am a passionate data scientist and A
 
 
 
-<a href="https://mateusznowakowski2024.github.io/ds_ai_portfolio/docs/contact/" class="md-button md-button--primary">Get in Touch</a>
+<a href="https://mateusznowakowski2024.github.io/ds_ai_portfolio/contact/" class="md-button md-button--primary">Get in Touch</a>
 
 ## Projects Overview
 
@@ -51,7 +51,7 @@ This project focuses on conducting an exploratory data analysis (EDA) on the Tit
 
 This portfolio highlights my ability to apply advanced data science and AI techniques to create innovative solutions. From enhancing AI interactions to developing engaging educational tools, my projects demonstrate a commitment to leveraging technology for impactful results.
 
-<a href="https://mateusznowakowski2024.github.io/ds_ai_portfolio/docs/contact/" class="md-button md-button--primary">Get in Touch</a>
+<a href="https://mateusznowakowski2024.github.io/ds_ai_portfolio/contact/" class="md-button md-button--primary">Get in Touch</a>
 
 
 

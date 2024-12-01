@@ -1,7 +1,10 @@
-# Lily-1.0 Advanced Coloring Book Generator!
-![Home Screen](images/home_screen.png "Home Screen")
 
-<a href="https://lily-1-0-app-e5maz.ondigitalocean.app/" class="md-button md-button--primary">Lily-1.0 App</a>
+# Lily-1.0 Advanced Coloring Book Generator!
+<div style="text-align: center;">
+  <img src="images/lily_logo_google.png" alt="Lily-1.0 Logo" title="Lily-1.0 Logo">
+  <br>
+  <a href="https://lily-1-0-app-e5maz.ondigitalocean.app/" class="md-button md-button--primary">Lily-1.0 App</a>
+</div>
 
 ## Overview
 
@@ -23,7 +26,7 @@ The main layout features a single “Reset Session” button, allowing users to 
 ### Interactive Chat Assistant
 
 Engage with Lily-1.0 through a chat interface powered by GPT-4o-mini. The assistant guides users through three creative options to generate personalized coloring pages.
-
+![Home Screen](images/home_screen.png "Home Screen")
 ## Three Generation Options
 
 ### Random Coloring Page
@@ -76,6 +79,9 @@ Combines machine learning techniques like image clustering and cartoonization wi
 
 Lily-1.0 Advanced Coloring Book Generator stands out by offering a sleek and minimalistic interface while leveraging state-of-the-art technologies in the backend. This combination ensures that users enjoy a smooth and engaging experience, whether they’re generating random designs, customizing based on their descriptions, or transforming personal photos into delightful coloring pages. Lily-1.0 is not just a coloring book generator; it’s a gateway to creativity powered by the latest advancements in AI and machine learning.
 
+<div style="text-align: center;">
+  <a href="https://lily-1-0-app-e5maz.ondigitalocean.app/" class="md-button md-button--primary">Lily-1.0 App</a>
+</div>
 
 ## Gallery
 
