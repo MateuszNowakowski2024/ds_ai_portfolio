@@ -1,4 +1,6 @@
-
+---
+comments: true
+---
 # Project Spotlight: Lily 2.0
 ## Revolutionizing Coloring Experiences for Kids
 

@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # Get in Touch
 
 I’m always excited to connect with fellow data enthusiasts, discuss potential collaborations, or explore new opportunities in Machine Learning, AI, and Data Modeling. Let’s work together to drive innovation and make data-driven decisions!
@@ -8,3 +11,5 @@ I’m always excited to connect with fellow data enthusiasts, discuss potential 
 ### 🌐 [Portfolio](https://mateusznowakowski2024.github.io/ds_ai_portfolio/) - this website
 
 Feel free to reach out via any of the above channels. I look forward to connecting with you!
+
+or simply leave a comment below:

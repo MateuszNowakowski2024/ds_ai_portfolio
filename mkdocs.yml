@@ -8,10 +8,11 @@ repo_url: https://github.com/MateuszNowakowski2024/ds_ai_portfolio.git
 
 theme:
   name: material
+  custom_dir: overrides
   palette:
-    - scheme: slate
-      primary: black
-      accent: teal
+    scheme: slate
+    primary: black
+    accent: teal
     
   
 nav:

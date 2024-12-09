@@ -1,20 +1,23 @@
+<!-- overrides/partials/comments.html -->
 {% if page.meta.comments %}
   <h2 id="__comments">{{ lang.t("meta.comments") }}</h2>
+  <!-- Paste your Giscus snippet directly below this line -->
   <script src="https://giscus.app/client.js"
   data-repo="MateuszNowakowski2024/ds_ai_portfolio"
   data-repo-id="R_kgDONTdthg"
-  data-category-id="[ENTER CATEGORY ID HERE]"
+  data-category="General"
+  data-category-id="DIC_kwDONTdths4Ckl_V"
   data-mapping="pathname"
   data-strict="0"
   data-reactions-enabled="1"
-  data-emit-metadata="0"
+  data-emit-metadata="1"
   data-input-position="top"
-  data-theme="dark"
+  data-theme="light"
   data-lang="en"
+  data-loading="lazy"
   crossorigin="anonymous"
-    async>
-  </script>
-
+  async>
+</script>
   <!-- Synchronize Giscus theme with palette -->
   <script>
     var giscus = document.querySelector("script[src*=giscus]")
@@ -25,12 +28,10 @@
       var theme = palette.color.scheme === "slate"
         ? "transparent_dark"
         : "light"
-
-      // Instruct Giscus to set theme
       giscus.setAttribute("data-theme", theme) 
     }
 
-    // Register event handlers after documented loaded
+    // Register event handlers after document loaded
     document.addEventListener("DOMContentLoaded", function() {
       var ref = document.querySelector("[data-md-component=palette]")
       ref.addEventListener("change", function() {
@@ -39,8 +40,6 @@
           var theme = palette.color.scheme === "slate"
             ? "transparent_dark"
             : "light"
-
-          // Instruct Giscus to change theme
           var frame = document.querySelector(".giscus-frame")
           frame.contentWindow.postMessage(
             { giscus: { setConfig: { theme } } },

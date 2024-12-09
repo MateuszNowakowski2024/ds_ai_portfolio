@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # Project Spotlight: PromptMaster
 <div style="text-align: center;">
     <img src="images/PromptMaster.webp" alt="PromptMaster" width="50%">

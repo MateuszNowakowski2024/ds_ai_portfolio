@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # Titanic Disaster Analysis
 ## A Data-Driven Investigation of the 1912 Maritime Tragedy
 

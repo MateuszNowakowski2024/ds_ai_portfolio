@@ -1,3 +1,8 @@
+---
+comments: true
+---
+
+
 # Welcome to My Portfolio
 ![portfolio_wallpaper_6](images/portfolio_wallpaper_6.png)
 ## About Me

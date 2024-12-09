@@ -1,4 +1,6 @@
-
+---
+comments: true
+---
 # Lily-1.0 Advanced Coloring Book Generator!
 <div style="text-align: center;">
   <img src="images/lily_logo_google.png" alt="Lily-1.0 Logo" title="Lily-1.0 Logo">
