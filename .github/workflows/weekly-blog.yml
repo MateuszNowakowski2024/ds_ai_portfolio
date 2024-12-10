@@ -42,7 +42,7 @@ jobs:
       
       - name: Pull Latest Changes
         run: |
-          git pull --rebase origin main
+          git pull origin main
 
       - name: Commit and Push
         run: |
