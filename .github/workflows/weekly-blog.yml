@@ -39,7 +39,7 @@ jobs:
         run: |
           git remote set-url origin https://x-access-token:${GIT_TOKEN}@github.com/MateuszNowakowski2024/ds_ai_portfolio.git
           git fetch origin main
-          git checkout main
+          git checkout -B main origin/main
           git pull --rebase origin main
 
       - name: Commit and push changes
