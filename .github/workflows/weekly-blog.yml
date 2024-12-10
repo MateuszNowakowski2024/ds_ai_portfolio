@@ -39,14 +39,14 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          
+
       - name: Ensure On Main
         run: |
           git checkout main    
       
       - name: Pull Latest Changes
         run: |
-          git pull origin main
+          git pull --rebase https://github.com/MateuszNowakowski2024/ds_ai_portfolio
 
       - name: Commit and Push
         run: |
