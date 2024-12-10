@@ -2,8 +2,11 @@ name: Weekly Automated Blog Post
 
 on:
   schedule:
-    - cron: '30 20 * * TUE'  # Every Monday at 08:00 UTC
+    - cron: '30 20 * * TUE'  
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   generate_and_deploy:
