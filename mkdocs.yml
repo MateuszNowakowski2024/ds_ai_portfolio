@@ -13,7 +13,10 @@ theme:
     scheme: slate
     primary: black
     accent: teal
-    
+
+plugins:
+  - search
+  - blog   
   
 nav:
 - Home: index.md
@@ -25,8 +28,8 @@ nav:
   - "Running Time Estimator": estimator/index.md
   - "Iris": iris/index.md
   - "Titanic": titanic/index.md
+- Blog:
+    - Home: blog/index.md
 - Get in Touch: contact.md
-
-
 
 
