@@ -56,7 +56,7 @@ jobs:
         run: |
           git add .
           git commit -m "Automated blog post - $(date +'%Y-%m-%d')"
-          git push
+          git push -f origin main
 
       - name: Build MkDocs
         run: mkdocs build
