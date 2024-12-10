@@ -40,11 +40,17 @@ jobs:
 
       - name: Ensure On Main
         run: |
-          git checkout main    
-      
+          git checkout main
+
+      - name: Set Remote with PAT
+        env:
+          GIT_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+        run: |
+          git remote set-url origin https://x-access-token:${GIT_TOKEN}@github.com/MateuszNowakowski2024/ds_ai_portfolio.git
+
       - name: Pull Latest Changes
         run: |
-          git pull --rebase https://github.com/MateuszNowakowski2024/ds_ai_portfolio
+          git pull --rebase origin main
 
       - name: Commit and Push
         run: |
