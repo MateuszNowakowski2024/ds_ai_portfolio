@@ -1,8 +1,10 @@
 name: Weekly Automated Blog Post
 
+name: Weekly Automated Blog Post
+
 on:
   schedule:
-    - cron: '30 20 * * TUE'  
+    - cron: '30 20 * * TUE'
   workflow_dispatch:
 
 permissions:
@@ -13,6 +15,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check out Repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Ensure full history is fetched
+          ref: main
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -22,47 +29,40 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install mkdocs mkdocs-material openai PyYAML
-      - name: Check out Repo
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0  # Ensure full history is fetched
-          ref: main
 
-      - name: Generate and Commit Changes
-        run: |
-          # Generate blog post
-          python generate_post.py
-        
-      - name: Check out Repo
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0  # Ensure full history is fetched
-          ref: main
-        
       - name: Set Remote with PAT
         env:
           GIT_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
         run: |
-            git remote set-url origin https://x-access-token:${GIT_TOKEN}@github.com/MateuszNowakowski2024/ds_ai_portfolio.git
-            git fetch origin main
-            git checkout -B main origin/main
+          git remote set-url origin https://x-access-token:${GIT_TOKEN}@github.com/MateuszNowakowski2024/ds_ai_portfolio.git
+          git fetch origin main
+          git checkout -B main origin/main
+
+      - name: Generate and Commit Changes
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          # Generate blog post
+          python generate_post.py
+          
+          # Configure git user
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          
+          # Commit changes
+          git add .
+          git commit -m "Automated blog post - $(date +'%Y-%m-%d')"
       
-      - name: Commit and Push Changes
+      - name: Ensure Up-to-Date Branch
+        run: |
+          # Pull changes from remote to ensure no conflicts before pushing
+          git pull --rebase origin main
+
+      - name: Push changes to main
         env:
           GIT_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
         run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git add -A
-          git commit -m "Automated blog post - $(date +'%Y-%m-%d')"
-          git push 
-        
+          git push origin main
 
       - name: Build MkDocs
         run: mkdocs build
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.PERSONAL_TOKEN }}
-          publish_dir: ./site
