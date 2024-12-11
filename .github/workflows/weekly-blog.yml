@@ -44,12 +44,11 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git config --global user.name 'Github-Actions'
+          git config --global user.email 'github-actions@github.com'
           git add .
           git commit -m "Automated blog post"
-          git pull
-          git push -f origin main
+          git push -f origin main 
 
       - name: Build MkDocs
         run: mkdocs build
