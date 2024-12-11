@@ -27,34 +27,38 @@ jobs:
         run: |
           pip install mkdocs mkdocs-material openai PyYAML
 
-      - name: Generate Blog Post
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: |
-          python generate_post.py
-
       - name: Set Remote with PAT
         env:
           GIT_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
         run: |
-          git remote set-url origin https://x-access-token:${GIT_TOKEN}@github.com/MateuszNowakowski2024/ds_ai_portfolio.git
-          git fetch origin main
-          git checkout -B main origin/main
-          git pull --rebase origin main
-
-      - name: Commit  changes
+            git remote set-url origin https://x-access-token:${GIT_TOKEN}@github.com/MateuszNowakowski2024/ds_ai_portfolio.git
+            git fetch origin main
+            git checkout -B main origin/main
+        
+      - name: Generate and Commit Changes
         run: |
-          git config --global user.name 'Github-Actions'
-          git config --global user.email 'github-actions@github.com'
+          # Generate blog post
+          python generate_post.py
+          
+          # Configure git user
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          
+          # Commit changes
           git add .
-          git commit -m "Automated blog post"
-
+          git commit -m "Automated blog post - $(date +'%Y-%m-%d')"
+      
+      - name: Ensure Up-to-Date Branch
+        run: |
+          # Pull changes from remote to ensure no conflicts before pushing
+          git pull --rebase origin main
+      
       - name: Push changes
         env:
-          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          GIT_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
         run: |
-          git pull origin main --rebase || git fetch origin main
-          git push https://x-access-token:${GIT_TOKEN}@github.com/MateuszNowakowski2024/ds_ai_portfolio.git main
+          git push origin main
+        
 
       - name: Build MkDocs
         run: mkdocs build
