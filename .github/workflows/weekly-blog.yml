@@ -42,13 +42,18 @@ jobs:
           git checkout -B main origin/main
           git pull --rebase origin main
 
-      - name: Commit and push changes
+      - name: Commit  changes
         run: |
           git config --global user.name 'Github-Actions'
           git config --global user.email 'github-actions@github.com'
           git add .
           git commit -m "Automated blog post"
-          git push -f origin main 
+
+      - name: Push changes
+        env:
+          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+        run: |
+          git push https://MateuszNowakowski2024:${PERSONAL_TOKEN}@github.com/MateuszNowakowski2024/ds_ai_portfolio.git main
 
       - name: Build MkDocs
         run: mkdocs build
