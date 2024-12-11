@@ -1,4 +1,3 @@
-
 name: Weekly Automated Blog Post
 
 on:
@@ -65,3 +64,10 @@ jobs:
 
       - name: Build MkDocs
         run: mkdocs build
+
+      
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          GIT_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          publish_dir: ./site
