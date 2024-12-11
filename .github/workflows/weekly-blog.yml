@@ -53,7 +53,8 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
         run: |
-          git push https://MateuszNowakowski2024:${PERSONAL_TOKEN}@github.com/MateuszNowakowski2024/ds_ai_portfolio.git main
+          git pull origin main --rebase || git fetch origin main
+          git push https://x-access-token:${GIT_TOKEN}@github.com/MateuszNowakowski2024/ds_ai_portfolio.git main
 
       - name: Build MkDocs
         run: mkdocs build
