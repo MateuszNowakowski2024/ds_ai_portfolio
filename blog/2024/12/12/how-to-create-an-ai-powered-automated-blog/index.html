@@ -13,7 +13,7 @@
       
       
       
-        <link rel="prev" href="../../10/my-first-blog-post/">
+        <link rel="prev" href="../how-to-add-a-blog-section-to-mkdocs-portfolio/">
       
       
       
@@ -22,7 +22,7 @@
     
     
       
-        <title>How to Enable Comments in MkDocs Portfolio - My Projects</title>
+        <title>How to Create an AI-powered Automated Blog - My Projects</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-enable-comments-in-mkdocs-portfolio" class="md-skip">
+        <a href="#how-to-create-an-ai-powered-automated-blog" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How to Enable Comments in MkDocs Portfolio
+              How to Create an AI-powered Automated Blog
             
           </span>
         </div>
@@ -627,65 +627,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prompt-gpt-o1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Prompt GPT-o1
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#repsonse" class="md-nav__link">
-    <span class="md-ellipsis">
-      Repsonse:
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Repsonse:">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      Prerequisites
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Steps
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#thats-it" class="md-nav__link">
-    <span class="md-ellipsis">
-      That’s it!
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -733,7 +674,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
                           <span class="md-ellipsis">
                             
-                              4 min read
+                              1 min read
                             
                           </span>
                         </div>
@@ -756,222 +697,9 @@
   
 
 
-<h1 id="how-to-enable-comments-in-mkdocs-portfolio">How to Enable Comments in MkDocs Portfolio</h1>
-<p>This guide explains how to enable comments in your MkDocs site. I created it by analyzing the MkDocs documentation and using AI assistance to create clear, step-by-step instructions.</p>
-<!-- more -->
-
-<h2 id="prompt-gpt-o1">Prompt GPT-o1</h2>
-<p><strong>Context</strong>: MkDocs documentation</p>
-<p><strong>Problem</strong>: Adding comments functionality to MkDocs portfolio</p>
-<p><strong>Objective</strong>: Create a step-by-step guide to enable comments in a MkDocs website using Giscus</p>
-<p>Below is a detailed walkthrough that will help you integrate Giscus comments into your MkDocs site using the Material for MkDocs theme. Follow these instructions carefully to enable interactive comments on your documentation pages.</p>
-<h2 id="repsonse">Repsonse:</h2>
-<h3 id="prerequisites">Prerequisites</h3>
-<ul>
-<li>You already have a MkDocs project set up with the Material for MkDocs theme.</li>
-<li>You have a GitHub account and a repository where you’d like to host the discussions for your comments.</li>
-</ul>
-<h3 id="steps">Steps</h3>
-<ol>
-<li>
-<p><strong>Install Material for MkDocs (if not already)</strong></p>
-<ul>
-<li>
-<p>If you haven’t installed Material for MkDocs yet, do so by running:</p>
-<p><code>pip install mkdocs-material</code></p>
-</li>
-<li>
-<p>Ensure it’s activated in your <code>mkdocs.yml</code> config:</p>
-<p><code>theme:</code>   </p>
-<p><code>name: material</code></p>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>Set up a GitHub repository for discussions</strong></p>
-<ul>
-<li>Decide which GitHub repository will host the discussions for your comments. This can be the same repo that holds your documentation source, or a completely separate repo.</li>
-<li>Enable <a href="https://docs.github.com/en/discussions">GitHub Discussions</a> on that repository if you haven’t already. Go to the repo’s "Settings" → "General" tab, scroll down to "Features," and enable Discussions.</li>
-<li>
-<p><strong>Install the Giscus GitHub App</strong></p>
-</li>
-<li>
-<p>Go to <a href="https://giscus.app/">https://giscus.app/</a> and follow the instructions to install the Giscus GitHub App.</p>
-</li>
-<li>Grant the app permission to the repository you’ve chosen for discussions.</li>
-<li>This app will handle the backend for your comments.</li>
-<li>
-<p><strong>Generate your Giscus snippet</strong></p>
-</li>
-<li>
-<p>While still on <a href="https://giscus.app/">https://giscus.app/</a>, follow their configuration tool:</p>
-<ul>
-<li>Choose the repository and discussion category you want to use.</li>
-<li>Set the "Discussion Mapping" to something appropriate, for example <code>pathname</code>.</li>
-<li>Select your preferred theme (you can leave it as <code>light</code> for now; Material for MkDocs will handle theme switching).</li>
-</ul>
-</li>
-<li>The tool will generate a <code>&lt;script&gt;</code> snippet. Copy this entire snippet.</li>
-<li>
-<p><strong>Create the <code>comments.html</code> partial override</strong></p>
-</li>
-<li>
-<p>In your MkDocs project, create a folder named <code>overrides</code> (if it does not already exist):</p>
-<p><code>mkdir overrides</code></p>
-</li>
-<li>
-<p>Inside <code>overrides</code>, create a folder structure matching the theme’s partial structure:</p>
-<p><code>mkdir -p overrides/partials</code></p>
-</li>
-<li>
-<p>Create (or edit) <code>comments.html</code> inside <code>overrides/partials/</code>:</p>
-</li>
-</ul>
-</li>
-</ol>
-<pre><code class="language-htm">`&lt;!-- overrides/partials/comments.html --&gt;`
-`{% if page.meta.comments %}`
-  `&lt;h2 id=&quot;__comments&quot;&gt;{{ lang.t(&quot;meta.comments&quot;) }}&lt;/h2&gt;`
-
-  `&lt;!-- Paste your Giscus snippet directly below this line --&gt;`
-
-  `&lt;!-- Synchronize Giscus theme with palette --&gt;`
-  `&lt;script&gt;`
-    `var giscus = document.querySelector(&quot;script[src*=giscus]&quot;)`
-
-    `// Set palette on initial load`
-    `var palette = __md_get(&quot;__palette&quot;)`
-    `if (palette &amp;&amp; typeof palette.color === &quot;object&quot;) {`
-      `var theme = palette.color.scheme === &quot;slate&quot;`
-        `? &quot;transparent_dark&quot;`
-        `: &quot;light&quot;`
-      `giscus.setAttribute(&quot;data-theme&quot;, theme)` 
-    `}`
-
-    `// Register event handlers after document loaded`
-    `document.addEventListener(&quot;DOMContentLoaded&quot;, function() {`
-      `var ref = document.querySelector(&quot;[data-md-component=palette]&quot;)`
-      `ref.addEventListener(&quot;change&quot;, function() {`
-        `var palette = __md_get(&quot;__palette&quot;)`
-        `if (palette &amp;&amp; typeof palette.color === &quot;object&quot;) {`
-          `var theme = palette.color.scheme === &quot;slate&quot;`
-            `? &quot;transparent_dark&quot;`
-            `: &quot;light&quot;`
-          `var frame = document.querySelector(&quot;.giscus-frame&quot;)`
-          `frame.contentWindow.postMessage(`
-            `{ giscus: { setConfig: { theme } } },`
-            `&quot;https://giscus.app&quot;`
-          `)`
-        `}`
-      `})`
-    `})`
-  `&lt;/script&gt;`
-`{% endif %}`
-`
-</code></pre>
-<ul>
-<li><strong>Important:</strong> Replace the <code>&lt;!-- Paste your Giscus snippet here --&gt;</code> comment with the actual <code>&lt;script&gt;</code> code you copied from Giscus.</li>
-</ul>
-<p>Your final <code>comments.html</code> might look like this (simplified example):</p>
-<pre><code class="language-htm">    ``{% if page.meta.comments %}`
-  `&lt;h2 id=&quot;__comments&quot;&gt;{{ lang.t(&quot;meta.comments&quot;) }}&lt;/h2&gt;`
-  `&lt;script`
-    `src=&quot;https://giscus.app/client.js&quot;`
-    `data-repo=&quot;username/repo&quot;`
-    `data-repo-id=&quot;...&quot;`
-    `data-category=&quot;...&quot;`
-    `data-category-id=&quot;...&quot;`
-    `data-mapping=&quot;pathname&quot;`
-    `data-reactions-enabled=&quot;1&quot;`
-    `data-emit-metadata=&quot;1&quot;`
-    `data-theme=&quot;light&quot;`
-    `data-lang=&quot;en&quot;`
-    `crossorigin=&quot;anonymous&quot;`
-    `async&gt;`
-  `&lt;/script&gt;`
-
-  `&lt;script&gt;`
-    `// Theme synchronization code (from the docs)`
-    `var giscus = document.querySelector(&quot;script[src*=giscus]&quot;)`
-    `var palette = __md_get(&quot;__palette&quot;)`
-    `if (palette &amp;&amp; typeof palette.color === &quot;object&quot;) {`
-      `var theme = palette.color.scheme === &quot;slate&quot;`
-        `? &quot;transparent_dark&quot;`
-        `: &quot;light&quot;`
-      `giscus.setAttribute(&quot;data-theme&quot;, theme)` 
-    `}`
-    `document.addEventListener(&quot;DOMContentLoaded&quot;, function() {`
-      `var ref = document.querySelector(&quot;[data-md-component=palette]&quot;)`
-      `ref.addEventListener(&quot;change&quot;, function() {`
-        `var palette = __md_get(&quot;__palette&quot;)`
-        `if (palette &amp;&amp; typeof palette.color === &quot;object&quot;) {`
-          `var theme = palette.color.scheme === &quot;slate&quot;`
-            `? &quot;transparent_dark&quot;`
-            `: &quot;light&quot;`
-          `var frame = document.querySelector(&quot;.giscus-frame&quot;)`
-          `frame.contentWindow.postMessage(`
-            `{ giscus: { setConfig: { theme } } },`
-            `&quot;https://giscus.app&quot;`
-          `)`
-        `}`
-      `})`
-    `})`
-  `&lt;/script&gt;`
-`{% endif %}`
-`
-</code></pre>
-<ol>
-<li>
-<p><strong>Point MkDocs to the overrides directory</strong></p>
-<ul>
-<li>
-<p>In your <code>mkdocs.yml</code>, add or confirm the following:</p>
-<p><code>theme:</code> <br />
-<code>name: material</code> <br />
-<code>custom_dir: overrides</code></p>
-</li>
-<li>
-<p>This tells MkDocs to use the <code>overrides</code> directory to replace default theme partials.</p>
-</li>
-<li>
-<p><strong>Enable comments on a page</strong></p>
-</li>
-<li>
-<p>Open a Markdown page file where you want comments enabled, e.g. <code>docs/index.md</code>.</p>
-</li>
-<li>
-<p>At the top of the page, add:</p>
-<p><code>---</code> 
-<code>comments: true</code> 
-<code>---</code></p>
-</li>
-<li>
-<p>This front matter signals to the theme that it should display the comment section on this page.</p>
-</li>
-<li>
-<p><strong>Build and serve your site</strong></p>
-</li>
-<li>
-<p>Run <code>mkdocs serve</code> to start the development server:</p>
-<p><code>mkdocs serve</code></p>
-</li>
-<li>
-<p>Open http://127.0.0.1:8000 in your browser.</p>
-</li>
-<li>Navigate to the page where you enabled comments. You should see the Giscus comment widget.</li>
-<li>
-<p><strong>Test, commit, and deploy</strong></p>
-</li>
-<li>
-<p>Once you verify that comments are working locally, commit your changes.</p>
-</li>
-<li>Deploy your MkDocs site the way you usually do (e.g., GitHub Pages, Netlify, etc.).</li>
-<li>After deployment, visitors to those pages will be able to view and add comments.</li>
-</ul>
-</li>
-</ol>
-<h3 id="thats-it">That’s it!</h3>
-<p>By following these simple steps, you’ve integrated Giscus comments into your MkDocs Material site. Now you have an interactive comment system that uses GitHub Discussions as a backend—completely free and open source.</p>
+<h1 id="how-to-create-an-ai-powered-automated-blog">How to Create an AI-powered Automated Blog</h1>
+<p>In this guide, I'll show you how to create an automated blog content pipeline using AI tools and services. This pipeline will generate blog posts, format them, and publish them on your website without any manual intervention. By automating this process, you can save time and focus on other aspects of your blog, such as promotion and engagement with your audience. I utilizes Gpt-4o-mini, Python, and GitHub Actions to create an end-to-end automated blog content pipeline.</p>
+<p>The guide is in the form of a connversation with GPT Model-o1, where I ask questions and the model provides responses. The model's responses are generated based on my input.</p>
 
 
 
