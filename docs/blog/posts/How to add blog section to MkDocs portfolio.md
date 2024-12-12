@@ -6,7 +6,7 @@ tags: [Manual, Guide]
 
 # How to add a blog section to MkDocs portfolio
 Here you have a complete step-by-step guide that walks you through the process of adding a blog section to your MkDocs portfolio. It's in the form of a conversation between myself and a OpenAi o1 model.
-
+<!-- more -->
 ## Prompt #1
 
 **Persona Adoption**: You are an experienced website designer
@@ -18,7 +18,7 @@ reference content: [MkDocs Blog Plugin Documentation](https://squidfunk.github.i
 **Problem**: I don't have time to fetch the information from the documentation and learn how to do it. I need a simple step-by-step guide.
 
 **Objective**: Create a step-by-step instruction on how to set up a blog section in my MkDocs portfolio. Keep it simple. Baby steps.
-<!-- more -->
+
 ChatGPT model 01
 
 ## Response
