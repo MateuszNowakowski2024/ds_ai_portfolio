@@ -30,7 +30,7 @@ jobs:
 
       - name: Set Remote with PAT
         env:
-          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }} # noqa
         run: |
           git remote set-url origin https://x-access-token:${PERSONAL_TOKEN}@github.com/MateuszNowakowski2024/ds_ai_portfolio.git
           git fetch origin main
@@ -38,7 +38,7 @@ jobs:
 
       - name: Generate and Commit Changes
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }} # noqa
         run: |
           # Generate blog post
           python generate_post.py
@@ -58,7 +58,7 @@ jobs:
 
       - name: Push changes to main
         env:
-          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }} # noqa
         run: |
           git push origin main
 
@@ -68,6 +68,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          personal_token: ${{ secrets.PERSONAL_TOKEN }} # noqa
           publish_dir: ./site
 

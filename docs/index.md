@@ -19,7 +19,13 @@ Hello! My name is Mateusz Nowakowski, and I am a passionate data scientist and A
 
 ## Projects Overview
 
+
+
 ### Current Projects
+
+#### Blog Project
+**Its my personal blog where I describe how to create a pipline for fully automated social media presence.**
+The blog will cover the process of setting up a pipeline that automatically generates and posts content on social media platforms. Key topics include data collection, content generation, scheduling, and posting. The blog aims to provide a comprehensive guide for individuals and businesses looking to streamline their social media presence. There will be some AI generated posts as well but I try to keep it as valuable as possible.
 
 #### Prompt Master
 **Transforming AI Interactions**
