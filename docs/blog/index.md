@@ -16,5 +16,9 @@ If you find my content helpful or use this information in your projects, please 
 
 Your feedback helps me create better content and motivates me to share more!
 
+
+<a href="https://mateusznowakowski2024.github.io/ds_ai_portfolio/" class="md-button md-button--primary">Back To My Homepage</a>
+
+
 <!-- blog_post_list -->
 

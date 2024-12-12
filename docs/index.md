@@ -4,6 +4,10 @@ comments: true
 
 
 # Welcome to My Portfolio
+
+**If you like this portfolio please leave a comment in the comments section at the bottom of the page.**
+
+
 ![portfolio_wallpaper_6](images/portfolio_wallpaper_6.png)
 ## About Me
 

@@ -30,9 +30,9 @@ jobs:
 
       - name: Set Remote with PAT
         env:
-          GIT_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
         run: |
-          git remote set-url origin https://x-access-token:${GIT_TOKEN}@github.com/MateuszNowakowski2024/ds_ai_portfolio.git
+          git remote set-url origin https://x-access-token:${PERSONAL_TOKEN}@github.com/MateuszNowakowski2024/ds_ai_portfolio.git
           git fetch origin main
           git checkout -B main origin/main
 
@@ -50,7 +50,7 @@ jobs:
           # Commit changes
           git add .
           git commit -m "Automated blog post - $(date +'%Y-%m-%d')"
-      
+
       - name: Ensure Up-to-Date Branch
         run: |
           # Pull changes from remote to ensure no conflicts before pushing
@@ -58,16 +58,16 @@ jobs:
 
       - name: Push changes to main
         env:
-          GIT_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
         run: |
           git push origin main
 
       - name: Build MkDocs
         run: mkdocs build
 
-      
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          GIT_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
           publish_dir: ./site
+
