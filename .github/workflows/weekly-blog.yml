@@ -2,7 +2,7 @@ name: Weekly Automated Blog Post
 
 on:
   schedule:
-    - cron: '30 20 * * TUE'
+    - cron: '30 20 * * MON' # 8:30 PM every Monday
   workflow_dispatch:
 
 permissions:
@@ -30,7 +30,7 @@ jobs:
 
       - name: Set Remote with PAT
         env:
-          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }} # noqa
+          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }} 
         run: |
           git remote set-url origin https://x-access-token:${PERSONAL_TOKEN}@github.com/MateuszNowakowski2024/ds_ai_portfolio.git
           git fetch origin main
@@ -38,7 +38,7 @@ jobs:
 
       - name: Generate and Commit Changes
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }} # noqa
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }} 
         run: |
           # Generate blog post
           python generate_post.py
