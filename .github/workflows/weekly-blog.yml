@@ -2,7 +2,7 @@ name: Weekly Automated Blog Post
 
 on:
   schedule:
-    - cron: '00 21 * * TUE' # 9:00 PM every Tuesday
+    - cron: '00 21 * * MON' # 9:10 PM every Tuesday
   workflow_dispatch:
 
 permissions:
