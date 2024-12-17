@@ -1,0 +1,59 @@
+name: Thursday Automated Blog Post
+
+on:
+  schedule:
+    - cron: '15 11 * * THU' # 11:15 AM every Thursday
+  workflow_dispatch:
+
+jobs:
+  generate_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          pip install mkdocs mkdocs-material openai PyYAML requests beautifulsoup4 feedparser python-dotenv
+          # Install any dependencies for LinkedIn script (if required)
+          # e.g., pip install requests
+
+      - name: Generate Blog Post
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          python generate_post.py
+
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+      - name: Commit and Push
+        run: |
+          git pull origin main
+          git add .
+          git commit -m "Automated blog post - $(date +'%Y-%m-%d')" || echo "No changes to commit"
+          git push
+
+      - name: Build MkDocs
+        run: mkdocs build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+
+      - name: Post on LinkedIn
+        if: success() # Only post if the deployment was successful
+        env:
+          LINKEDIN_JSESSIONID: ${{ secrets.LINKEDIN_JSESSIONID }}
+          LINKEDIN_LI_AT: ${{ secrets.LINKEDIN_LI_AT }}
+        run: |
+          python post_to_linkedin_thu.py
