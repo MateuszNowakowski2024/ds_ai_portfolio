@@ -27,7 +27,17 @@ def generate_intro_thu(title, summary_text, blog_url):
         "Draft the introduction now."
     )
     
+    response = openai.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+            {"role": "system", "content": "You are a professional content creator with a flair for catchy, engaging marketing copy."},
+            {"role": "user", "content": prompt}
+        ],
+        max_tokens=300,
+        temperature=0.8,
+    )
 
+    return response.choices[0].message.content.strip()
 
 
 def generate_intro_mon(title, summary_text, blog_url):
