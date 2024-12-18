@@ -55,5 +55,6 @@ jobs:
         env:
           LINKEDIN_JSESSIONID: ${{ secrets.LINKEDIN_JSESSIONID }}
           LINKEDIN_LI_AT: ${{ secrets.LINKEDIN_LI_AT }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
           python post_to_linkedin_thu.py
