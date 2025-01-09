@@ -33,7 +33,7 @@ def generate_intro_thu(title, summary_text, blog_url):
             {"role": "system", "content": "You are a professional content creator with a flair for catchy, engaging marketing copy."},
             {"role": "user", "content": prompt}
         ],
-        max_tokens=300,
+        max_tokens=500,
         temperature=0.8,
     )
 
@@ -53,7 +53,7 @@ def generate_intro_mon(title, summary_text, blog_url):
     
     prompt = (
         "You are a marketing copywriter creating a LinkedIn introduction for a new blog post. "
-        "Write a short (50-100 words) LinkedIn post introduction that:\n"
+        "Write a short (100-150 words) LinkedIn post introduction that:\n"
         "Start from the words 'Happy Monday Everyone!'" 
         "- References the blog title provided.\n"
         "- Summarizes or teases some key insights from the summary text.\n"
@@ -72,7 +72,7 @@ def generate_intro_mon(title, summary_text, blog_url):
             {"role": "system", "content": "You are a professional content creator with a flair for catchy, engaging marketing copy."},
             {"role": "user", "content": prompt}
         ],
-        max_tokens=300,
+        max_tokens=500,
         temperature=0.8,
     )
 
@@ -85,7 +85,7 @@ def blog_post(recent_titles, scraped_context):
     # Instead of relying on a hardcoded topic, we instruct the model to choose a topic 
     # based on the scraped news context.
     prompt = (
-        "Write a detailed blog post (around 300 words) that focuses on a timely and relevant "
+        "Write a detailed blog post (around 500 words) that focuses on a timely and relevant "
         "topic derived from the recent data science and AI news and updates provided below. "
         "Your post should identify a key theme from these updates and center the discussion around it. "
         "The writing style should be casual, yet informative and technical. "
@@ -125,10 +125,7 @@ def tutorial_post(recent_titles):
         "One-line data modeling techniques in Python",
         "Data visualization tips and tricks with Matplotlib or Seaborn",
         "Effective use of GitHub for version control and collaboration",
-        "Creating interactive dashboards with Plotly and Dash",
-        "Implementing CI/CD pipelines on GitHub",
         "Leveraging transfer learning in Python for advanced machine learning models",
-        # 10 additional topics
         "Python coding tutorial: virtual environments and dependency management",
         "Python coding tutorial: writing and running tests",
         "Python coding tutorial: error handling and exceptions",
@@ -139,6 +136,16 @@ def tutorial_post(recent_titles):
         "Terminal tutorial: using `curl` and `wget` for data retrieval",
         "Terminal tutorial: automating tasks with `cron` jobs",
         "Terminal tutorial: using `tar` and `zip` for file archiving and compression"
+        "Python coding tutorial: comprehensions (list, dictionary, and set)"
+        "Python coding tutorial: working with APIs and HTTP requests"
+        "Python coding tutorial: regular expressions for text processing"
+        "Python coding tutorial: multithreading and multiprocessing"
+        "Python coding tutorial: working with dates and times"
+        "Python coding tutorial: decorators and advanced function usage"
+        "Python coding tutorial: context managers and the with statement"
+        "Python coding tutorial: creating and using Python packages"
+        "Python coding tutorial: exploring Python's collections module"
+        "Python coding tutorial: introduction to asynchronous programming"
     ]
 
     chosen_topic = random.choice(topics)
@@ -146,7 +153,7 @@ def tutorial_post(recent_titles):
     # Create a prompt that references recent posts to avoid repetition
     recent_posts_str = "\n".join([f"- {t}" for t in recent_titles]) if recent_titles else "No recent posts found."
     prompt = (
-        f"Write a detailed blog post (around 300 words) on {chosen_topic}. "
+        f"Write a detailed blog post (around 600 words) on {chosen_topic}. "
         f"The writing style should be casual, yet informative and technical. "
         f"Include headings, an introduction, and a conclusion. "
         f"Avoid repeating content and topics covered in recent posts:\n{recent_posts_str}\n\n"
