@@ -1,0 +1,2326 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Portfolio of my great projects in Data Science and Artificial Intelligence!">
+      
+      
+        <meta name="author" content="Mateusz Nowakowski">
+      
+      
+      
+        <link rel="prev" href="../titanic/">
+      
+      
+        <link rel="next" href="../database_aws/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
+    
+    
+      
+        <title>How to deploy multiple streamlit apps on a single EC2 instance AWS - My Projects</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#setting-up-multiple-streamlit-apps-on-a-single-ec2-instance-free-for-12-mths" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="My Projects" class="md-header__button md-logo" aria-label="My Projects" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Projects
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              How to deploy multiple streamlit apps on a single EC2 instance AWS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/MateuszNowakowski2024/ds_ai_portfolio.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MateuszNowakowski2024/ds_ai_portfolio
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="My Projects" class="md-nav__button md-logo" aria-label="My Projects" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Projects
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/MateuszNowakowski2024/ds_ai_portfolio.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MateuszNowakowski2024/ds_ai_portfolio
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Current projects
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Current projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prompt_master/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prompt Master
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lily_2_0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lily 2.0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Previous projects
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Previous projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lily_1_0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lily 1.0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../estimator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Running Time Estimator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iris/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Iris
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../titanic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Titanic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tutorials
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    How to deploy multiple streamlit apps on a single EC2 instance AWS
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    How to deploy multiple streamlit apps on a single EC2 instance AWS
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-tools-and-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction to Tools and Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction to Tools and Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0-cost-for-12-months-challenge-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      $0 Cost for 12 Months Challenge Limitations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amazon-ec2-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon EC2 Instance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nginx
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tmux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tmux
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vim
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#certbot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Certbot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-launching-and-connecting-to-an-ec2-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Launching and Connecting to an EC2 Instance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Launching and Connecting to an EC2 Instance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-11-launch-an-ec2-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1.1: Launch an EC2 Instance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-12-connect-to-your-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1.2: Connect to Your Instance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-system-update-and-software-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. System Update and Software Installation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. System Update and Software Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-21-update-your-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2.1: Update Your System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-22-install-python-311-and-pip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2.2: Install Python 3.11 and pip
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-23-install-git-and-tmux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2.3: Install Git and Tmux
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-24-install-and-start-nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2.4: Install and Start Nginx
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-nginx-setup-for-multiple-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Nginx Setup for Multiple Domains
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Nginx Setup for Multiple Domains">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-31-update-dns-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3.1: Update DNS Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-32-optional-set-up-https-with-certbot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3.2: (Optional) Set Up HTTPS with Certbot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-33-configure-nginx-as-a-reverse-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3.3: Configure Nginx as a Reverse Proxy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-running-multiple-streamlit-apps-with-tmux" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Running Multiple Streamlit Apps with Tmux
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Running Multiple Streamlit Apps with Tmux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-41-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4.1: Virtual Environment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-42-step-by-step-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4.2: Step-by-Step Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-43-prepare-your-streamlit-apps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4.3: Prepare Your Streamlit Apps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4.3: Prepare Your Streamlit Apps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cloning-repositories-from-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloning Repositories from GitHub
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-44-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4.4: Environment Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-45-start-a-tmux-session-for-each-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4.5: Start a Tmux Session for Each App
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4.5: Start a Tmux Session for Each App">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-the-first-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      For the First App:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-the-second-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      For the Second App:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-adding-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Adding database
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-automating-startup-on-reboot-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Automating Startup on Reboot (Optional)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Automating Startup on Reboot (Optional)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-61-create-a-startup-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6.1: Create a Startup Script
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-62-configure-crontab-to-run-script-at-boot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6.2: Configure Crontab to Run Script at Boot
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-summary-of-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Summary of Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Summary of Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Update:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install Dependencies:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manage-tmux-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manage Tmux Sessions:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-a-streamlit-app-in-tmux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run a Streamlit App in Tmux:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nginx-check-and-reload" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nginx Check and Reload:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#certbot-for-ssl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Certbot for SSL:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clone-a-repository-using-a-personal-access-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clone a Repository Using a Personal Access Token:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automate-startup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automate Startup:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      8: Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database_aws/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to Set Up a Database and Connect to Your App on an AWS EC2 Instance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../par_store/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to securely retrieve environment variables from AWS Systems Manager Parameter Store
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Blog Project
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Blog Project
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../blog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    My Blog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Archive
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Archive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../blog/archive/2025/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2025
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../blog/archive/2024/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2024
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get in Touch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-tools-and-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction to Tools and Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction to Tools and Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0-cost-for-12-months-challenge-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      $0 Cost for 12 Months Challenge Limitations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amazon-ec2-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon EC2 Instance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nginx
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tmux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tmux
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vim
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#certbot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Certbot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-launching-and-connecting-to-an-ec2-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Launching and Connecting to an EC2 Instance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Launching and Connecting to an EC2 Instance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-11-launch-an-ec2-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1.1: Launch an EC2 Instance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-12-connect-to-your-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1.2: Connect to Your Instance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-system-update-and-software-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. System Update and Software Installation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. System Update and Software Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-21-update-your-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2.1: Update Your System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-22-install-python-311-and-pip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2.2: Install Python 3.11 and pip
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-23-install-git-and-tmux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2.3: Install Git and Tmux
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-24-install-and-start-nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2.4: Install and Start Nginx
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-nginx-setup-for-multiple-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Nginx Setup for Multiple Domains
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Nginx Setup for Multiple Domains">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-31-update-dns-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3.1: Update DNS Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-32-optional-set-up-https-with-certbot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3.2: (Optional) Set Up HTTPS with Certbot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-33-configure-nginx-as-a-reverse-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3.3: Configure Nginx as a Reverse Proxy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-running-multiple-streamlit-apps-with-tmux" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Running Multiple Streamlit Apps with Tmux
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Running Multiple Streamlit Apps with Tmux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-41-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4.1: Virtual Environment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-42-step-by-step-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4.2: Step-by-Step Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-43-prepare-your-streamlit-apps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4.3: Prepare Your Streamlit Apps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4.3: Prepare Your Streamlit Apps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cloning-repositories-from-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloning Repositories from GitHub
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-44-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4.4: Environment Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-45-start-a-tmux-session-for-each-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4.5: Start a Tmux Session for Each App
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4.5: Start a Tmux Session for Each App">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-the-first-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      For the First App:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-the-second-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      For the Second App:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-adding-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Adding database
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-automating-startup-on-reboot-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Automating Startup on Reboot (Optional)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Automating Startup on Reboot (Optional)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-61-create-a-startup-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6.1: Create a Startup Script
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-62-configure-crontab-to-run-script-at-boot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6.2: Configure Crontab to Run Script at Boot
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-summary-of-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Summary of Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Summary of Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Update:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install Dependencies:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manage-tmux-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manage Tmux Sessions:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-a-streamlit-app-in-tmux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run a Streamlit App in Tmux:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nginx-check-and-reload" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nginx Check and Reload:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#certbot-for-ssl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Certbot for SSL:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clone-a-repository-using-a-personal-access-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clone a Repository Using a Personal Access Token:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automate-startup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automate Startup:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      8: Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="setting-up-multiple-streamlit-apps-on-a-single-ec2-instance-free-for-12-mths">Setting Up Multiple Streamlit Apps on a Single EC2 Instance Free for 12 mths</h1>
+<p>This guide will walk you through setting up an AWS EC2 Linux instance to host multiple Streamlit applications. We'll cover necessary tools, their purposes, and how to install and configure software to run multiple apps concurrently using Nginx, Tmux, Vim, Certbot, and Git. Additionally, you'll learn how to clone your application repositories from GitHub using a personal access token.</p>
+<h2 id="introduction-to-tools-and-concepts">Introduction to Tools and Concepts</h2>
+<h3 id="0-cost-for-12-months-challenge-limitations">$0 Cost for 12 Months Challenge Limitations</h3>
+<p>The idea of this guide is to set up multiple apps and/or static websites on a single EC2 instance while staying within the AWS free tier, thereby incurring $0 for the first year. As of February 2024, AWS charges $0.005 per hour for every public IP assigned to a resource. We only get one public IP within the free tier. If we start another AWS resource that faces the internet (e.g., a second EC2 instance, database, or load balancer), we will be charged $0.005 per hour for each one.</p>
+<p>To fit within the $0 rule, we can't use Route 53 to host our domain. Route 53 also costs $0.50 per month. There are also charges per every 1 million packets transferred. We can't use AWS Certificate Manager even though it's free, as it requires an AWS load balancer. According to their policy, the load balancer must have at least two availability zones assigned, which means it will have two public IP addresses assigned and will incur charges.</p>
+<p>We will have to use a domain registrar that provides free DNS services. Additionally, we will use a free SSL certificate provider like Let's Encrypt.</p>
+<h3 id="amazon-ec2-instance">Amazon EC2 Instance</h3>
+<p><strong>What is an EC2 Instance?</strong></p>
+<p>Amazon Elastic Compute Cloud (EC2) is a web service that provides resizable compute capacity in the cloud. An EC2 instance is a virtual server that runs applications and services.
+I choose Amazon Linux 2023 as the operating system for this guide. It's a free, stable, and optimized Linux distribution provided by AWS. A lot of the commands in this guide are specific to Amazon Linux 2023. If you are using a different distribution, you may need to adjust the commands accordingly.</p>
+<p><strong>Why are we using it?</strong></p>
+<p>It provides a flexible, scalable, and cost-effective way to host web applications, like multiple Streamlit apps, without needing to manage physical hardware.</p>
+<h3 id="nginx">Nginx</h3>
+<p><strong>What is Nginx?</strong></p>
+<p>Nginx (pronounced "Engine-X") is a high-performance web server and reverse proxy server.</p>
+<p><strong>Why are we using it?</strong></p>
+<ul>
+<li><strong>Reverse Proxy:</strong> Nginx forwards incoming web requests from your domain to the correct Streamlit app running on a specific port.</li>
+<li><strong>Load Balancing &amp; Security:</strong> It handles traffic efficiently, provides load balancing, and can enforce HTTPS for secure communication.</li>
+</ul>
+<h3 id="tmux">Tmux</h3>
+<p><strong>What is Tmux?</strong></p>
+<p>Tmux is a terminal multiplexer that allows you to manage multiple terminal sessions in one window.</p>
+<p><strong>Why do we need it?</strong></p>
+<ul>
+<li><strong>Manage Multiple Apps:</strong> Run each Streamlit app in its own Tmux session so they operate independently.</li>
+<li><strong>Persistence:</strong> Sessions can continue running in the background even after disconnecting, allowing apps to keep running without an active SSH connection.</li>
+</ul>
+<h3 id="vim">Vim</h3>
+<p><strong>What is Vim?</strong></p>
+<p>Vim is a powerful text editor used within the terminal.</p>
+<p><strong>What are we using it for?</strong></p>
+<p>Editing Configuration Files: We use Vim to edit configuration files (e.g., Nginx settings, startup scripts) directly on the server.</p>
+<h3 id="certbot">Certbot</h3>
+<p><strong>What is Certbot?</strong></p>
+<p>Certbot is an automated tool for obtaining and installing SSL/TLS certificates from Let's Encrypt.</p>
+<p><strong>Why are we using it?</strong></p>
+<ul>
+<li><strong>HTTPS Setup:</strong> Certbot simplifies the process of configuring HTTPS for your domains, ensuring secure communication between users and your server.</li>
+<li><strong>Automation:</strong> It automatically handles certificate renewal, reducing manual maintenance.</li>
+</ul>
+<h3 id="git">Git</h3>
+<p><strong>What is Git?</strong></p>
+<p>Git is a distributed version control system that helps track changes in source code during software development.</p>
+<p><strong>Why are we using it?</strong></p>
+<ul>
+<li><strong>Cloning Repositories:</strong> We'll use Git to clone our Streamlit application code from GitHub to the EC2 instance.</li>
+<li><strong>Personal Access Token:</strong> Since GitHub no longer supports password authentication, a personal access token is required for accessing private repositories.</li>
+</ul>
+<h2 id="1-launching-and-connecting-to-an-ec2-instance">1. Launching and Connecting to an EC2 Instance</h2>
+<h3 id="step-11-launch-an-ec2-instance">Step 1.1: Launch an EC2 Instance</h3>
+<p>This is only a short overview. There is virtually a ton of content on how to launch an ec2 on YouTube and Medium etc. Start here <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html">AWS documentation</a>.</p>
+<ul>
+<li><strong>Log in to AWS Console:</strong> Go to the EC2 Dashboard and click "Launch Instance".</li>
+<li><strong>Configure the Instance:</strong><ul>
+<li><strong>AMI:</strong> Select Amazon Linux 2023.</li>
+<li><strong>Instance Type:</strong> Choose t2.micro (free tier-eligible) or another type based on your needs.</li>
+<li><strong>Key Pair:</strong> Select an existing key pair or create a new one. This *.pem file is needed for SSH access.</li>
+<li><strong>Security Group:</strong> Ensure the following ports are open:<ul>
+<li>22 (SSH)</li>
+<li>80 (HTTP)</li>
+<li>443 (HTTPS)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Launch Instance:</strong> Confirm the settings and launch the instance.</li>
+</ul>
+<h3 id="step-12-connect-to-your-instance">Step 1.2: Connect to Your Instance</h3>
+<ul>
+<li>Find your instance's Public IPv4 address in the AWS Console.</li>
+<li>Open your terminal and connect via SSH:</li>
+</ul>
+<pre><code class="language-bash">ssh -i /path/to/your_key.pem ec2-user@your_instance_ip
+</code></pre>
+<p>Replace <code>/path/to/your_key.pem</code> with your key's path. Replace <code>your_instance_ip</code> with the instance’s public IP.</p>
+<h2 id="2-system-update-and-software-installation">2. System Update and Software Installation</h2>
+<h3 id="step-21-update-your-system">Step 2.1: Update Your System</h3>
+<p>Run the following command to update package lists and software:</p>
+<pre><code class="language-bash">sudo dnf update -y
+</code></pre>
+<h3 id="step-22-install-python-311-and-pip">Step 2.2: Install Python 3.11 and pip</h3>
+<ul>
+<li><strong>Install Python 3.11:</strong></li>
+</ul>
+<pre><code class="language-bash">sudo dnf install -y python3.11 python3.11-devel
+</code></pre>
+<ul>
+<li><strong>Install or upgrade pip:</strong></li>
+</ul>
+<pre><code class="language-bash">python3.11 -m ensurepip --upgrade
+</code></pre>
+<ul>
+<li><strong>Verify installation:</strong></li>
+</ul>
+<pre><code class="language-bash">python3.11 --version
+pip3.11 --version
+</code></pre>
+<h3 id="step-23-install-git-and-tmux">Step 2.3: Install Git and Tmux</h3>
+<ul>
+<li><strong>Install Git:</strong></li>
+</ul>
+<pre><code class="language-bash">sudo dnf install -y git
+</code></pre>
+<ul>
+<li><strong>Install Tmux:</strong></li>
+</ul>
+<pre><code class="language-bash">sudo dnf install -y tmux
+</code></pre>
+<h3 id="step-24-install-and-start-nginx">Step 2.4: Install and Start Nginx</h3>
+<ul>
+<li><strong>Enable Nginx repository:</strong></li>
+</ul>
+<pre><code class="language-bash">sudo amazon-linux-extras enable nginx1
+</code></pre>
+<ul>
+<li>
+<p>If this command fails that means you can skip this step and go to the next one.</p>
+</li>
+<li>
+<p><strong>Install Nginx:</strong></p>
+</li>
+</ul>
+<pre><code class="language-bash">sudo dnf install -y nginx
+</code></pre>
+<ul>
+<li><strong>Start and enable Nginx:</strong></li>
+</ul>
+<pre><code class="language-bash">sudo systemctl start nginx
+sudo systemctl enable nginx
+</code></pre>
+<h2 id="3-nginx-setup-for-multiple-domains">3. Nginx Setup for Multiple Domains</h2>
+<h3 id="step-31-update-dns-settings">Step 3.1: Update DNS Settings</h3>
+<p>For each domain (e.g., example.com, example2.com):</p>
+<ul>
+<li>Log in to your domain registrar.</li>
+<li>
+<p>Create an A record pointing your domain to the EC2 instance’s public IP.</p>
+</li>
+<li>
+<p>Refer to your registrar's documentation for specific instructions on updating DNS settings.</p>
+</li>
+</ul>
+<h3 id="step-32-optional-set-up-https-with-certbot">Step 3.2: (Optional) Set Up HTTPS with Certbot</h3>
+<ul>
+<li>Do you need SSL? If you want to use your app "internally," you can skip this step. However, without a certificate, you won't be able to add features like login with Google or payment gateways.</li>
+<li>
+<p>You are not required to use Certbot; you can obtain a certificate from any other provider. Refer to their documentation on how to install it on your server. However, Certbot is free and automates the process of obtaining and installing SSL certificates from Let's Encrypt.</p>
+</li>
+<li>
+<p><strong>Install Certbot:</strong></p>
+</li>
+</ul>
+<pre><code class="language-bash">sudo dnf install -y certbot python3-certbot-nginx
+</code></pre>
+<ul>
+<li><strong>Obtain and install SSL certificates for each domain:</strong></li>
+</ul>
+<pre><code class="language-bash">sudo certbot --nginx -d example.com -d www.example.com
+sudo certbot --nginx -d example2.com -d www.example2.com
+</code></pre>
+<pre><code>Follow prompts to configure and automate certificate renewal.
+</code></pre>
+<h3 id="step-33-configure-nginx-as-a-reverse-proxy">Step 3.3: Configure Nginx as a Reverse Proxy</h3>
+<ul>
+<li>Open a new Nginx configuration file:</li>
+</ul>
+<pre><code class="language-bash">sudo vim /etc/nginx/conf.d/streamlit.conf
+</code></pre>
+<p>We create a separate configuration file to keep the main Nginx configuration clean. You can name it anything you like. I chose <code>streamlit.conf</code>.
+Use vim to edit the file. If you are not familiar with vim you can use nano or any other text editor. i to insert text, esc to exit insert mode, :wq to save and exit.</p>
+<ul>
+<li>Add configuration blocks for each domain:</li>
+</ul>
+<pre><code class="language-nginx"># Domain 1: example.com
+server {
+        listen 80;
+        server_name example.com www.example.com;
+        return 301 https://$host$request_uri;
+}
+
+server {
+        listen 443 ssl;
+        server_name example.com www.example.com;
+
+        ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
+
+        location / {
+                proxy_pass http://127.0.0.1:8501;
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection &quot;upgrade&quot;;
+                proxy_set_header Host $host;
+                proxy_cache_bypass $http_upgrade;
+        }
+}
+
+# Domain 2: example2.com
+server {
+        listen 80;
+        server_name example2.com www.example2.com;
+        return 301 https://$host$request_uri;
+}
+
+server {
+        listen 443 ssl;
+        server_name example2.com www.example2.com;
+
+        ssl_certificate /etc/letsencrypt/live/example2.com/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/example2.com/privkey.pem;
+
+        location / {
+                proxy_pass http://127.0.0.1:8502;
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection &quot;upgrade&quot;;
+                proxy_set_header Host $host;
+                proxy_cache_bypass $http_upgrade;
+        }
+}
+</code></pre>
+<p>Replace <code>example.com</code> and <code>example2.com</code> with your actual domain names. Configure paths for SSL certificates when Certbot generates them.</p>
+<ul>
+<li>
+<p>Save and exit Vim: Press <code>Esc</code>, type <code>:wq</code>, and press <code>Enter</code>.</p>
+</li>
+<li>
+<p>If you used certbot then most of the script should be generated for you. You can check the configuration file at <code>/etc/nginx/conf.d/your_domain.conf</code> and make sure that the configuration is correct.</p>
+</li>
+<li>
+<p>Test and reload Nginx configuration:</p>
+</li>
+</ul>
+<pre><code class="language-bash">sudo nginx -t
+sudo systemctl reload nginx
+</code></pre>
+<h2 id="4-running-multiple-streamlit-apps-with-tmux">4. Running Multiple Streamlit Apps with Tmux</h2>
+<h3 id="step-41-virtual-environment">Step 4.1: Virtual Environment</h3>
+<p><strong>Do you need a virtual environment?</strong></p>
+<p>Setting up a virtual environment on your EC2 instance introduces minimal overhead and is highly recommended for managing Python dependencies effectively, especially in multi-version scenarios. Here's a detailed comparison of the two approaches to help you decide:</p>
+<p><strong>Option 1: Use Virtual Environments</strong></p>
+<p><strong>Pros:</strong>
+- <strong>Dependency Isolation:</strong> Virtual environments isolate dependencies for your Streamlit app, preventing conflicts with system-level packages or other projects.
+- <strong>Clean Environment:</strong> You can install libraries and tools specific to your app without cluttering the global Python environment.
+- <strong>Portability:</strong> If you need to replicate your environment on another instance, you can use the <code>requirements.txt</code> file to easily reinstall dependencies.
+- <strong>Best Practice:</strong> Using virtual environments is considered a best practice in Python development.</p>
+<p><strong>Cons:</strong>
+- <strong>Minimal Overhead:</strong> While virtual environments consume some disk space (mainly for copied binaries and installed packages), this is generally negligible on modern EC2 instances.
+- <strong>Setup Steps:</strong> You need to create and activate the virtual environment before running your app, which adds a step to your workflow.</p>
+<p><strong>Option 2: Use Global Python Installation</strong></p>
+<p><strong>Pros:</strong>
+- <strong>Simplicity:</strong> You directly use <code>python3.11</code> without additional setup for virtual environments.
+- <strong>Less Disk Usage:</strong> No duplicate copies of the Python binary or libraries are created.</p>
+<p><strong>Cons:</strong>
+- <strong>Risk of Conflicts:</strong> Installing dependencies globally may cause conflicts with system Python packages or dependencies for other projects.
+- <strong>System Stability:</strong> There is a small risk of inadvertently installing or upgrading packages that affect system scripts or tools.
+- <strong>Difficulty in Maintenance:</strong> Managing dependencies globally can lead to a cluttered environment and challenges during upgrades or migrations.</p>
+<p><strong>Recommendation</strong></p>
+<p>For most Streamlit app setups, using a virtual environment is the better choice, even on a lightweight EC2 instance. Here's why:
+- The overhead of a virtual environment is negligible compared to the benefits of dependency isolation.
+- It prevents issues that may arise from global installations, such as version conflicts or unintended system changes.
+- It aligns with Python best practices, making your app more robust and easier to manage.</p>
+<p>If simplicity is your priority and you are confident the global installation won't cause conflicts (e.g., it's a dedicated EC2 instance for a single project), you can skip the virtual environment. However, this approach is less flexible and more error-prone in the long run.</p>
+<p>If you choose to use a virtual environment, follow the steps below to set it up for your Streamlit apps.</p>
+<p><strong>Recommended Folder Structure</strong></p>
+<pre><code class="language-bash">/main_project_folder
+├── venv/                 # Shared virtual environment
+├── app1/                 # Subfolder for App 1
+│   ├── app1_code/        # Cloned Git repo for App 1
+│   │   ├── app.py
+│   │   ├── requirements.txt
+│   ├── static/           # Optional: App-specific static files
+├── app2/                 # Subfolder for App 2
+│   ├── app2_code/        # Cloned Git repo for App 2
+│   │   ├── app.py
+│   │   ├── requirements.txt
+│   ├── data/             # Optional: App-specific data
+</code></pre>
+<h3 id="step-42-step-by-step-setup">Step 4.2: Step-by-Step Setup</h3>
+<ol>
+<li>
+<p><strong>Create the Main Folder</strong></p>
+<p>Create a folder to hold everything:</p>
+</li>
+</ol>
+<pre><code class="language-bash">mkdir ~/main_project_folder
+cd ~/main_project_folder
+</code></pre>
+<ol>
+<li>
+<p><strong>Set Up the Shared Virtual Environment</strong></p>
+<p>Create a single virtual environment in the main folder:</p>
+</li>
+</ol>
+<pre><code class="language-bash">python3.11 -m venv venv
+</code></pre>
+<pre><code>Activate the virtual environment:
+</code></pre>
+<pre><code class="language-bash">source venv/bin/activate
+</code></pre>
+<h3 id="step-43-prepare-your-streamlit-apps">Step 4.3: Prepare Your Streamlit Apps</h3>
+<p>Before starting your apps, you'll need to have the source code on the EC2 instance. If your code is hosted on GitHub, you can clone your repositories directly onto the server.</p>
+<h4 id="cloning-repositories-from-github">Cloning Repositories from GitHub</h4>
+<ul>
+<li>
+<p><strong>Create a Personal Access Token on GitHub:</strong></p>
+<ul>
+<li>Log into GitHub.</li>
+<li>Go to Settings &gt; Developer settings &gt; Personal access tokens.</li>
+<li>Generate a new token with appropriate scopes (e.g., repo for private repositories).</li>
+<li>Save this token securely; you'll need it for cloning.</li>
+</ul>
+</li>
+<li>
+<p><strong>Clone Your Repositories:</strong></p>
+</li>
+</ul>
+<p>For a public repository, you can simply run:</p>
+<pre><code class="language-bash">git clone https://github.com/your_username/your_repo.git ~/app1
+</code></pre>
+<p>For a private repository or if prompted for authentication, use your personal access token as the password:</p>
+<pre><code class="language-bash">git clone https://github.com/your_username/your_private_repo.git ~/app1
+</code></pre>
+<p>When asked for a password, paste your personal access token instead of your GitHub password.</p>
+<ul>
+<li><strong>Repeat for Additional Apps:</strong></li>
+</ul>
+<pre><code class="language-bash">git clone https://github.com/your_username/another_repo.git ~/app2
+</code></pre>
+<p>Use the token for authentication if required.</p>
+<p>Now you should have your application code in directories like <code>~/main_project_folder/app1</code> and <code>~/main_project_folder/app2</code>.</p>
+<ol>
+<li><strong>Install Dependencies</strong></li>
+</ol>
+<p>While the virtual environment is active, navigate to each app's folder and install its dependencies:</p>
+<p>For App 1:</p>
+<pre><code class="language-bash">cd ~/main_project_folder/app1/app1_code
+pip install -r requirements.txt
+</code></pre>
+<p>For App 2:</p>
+<pre><code class="language-bash">cd ~/main_project_folder/app2/app2_code
+pip install -r requirements.txt
+</code></pre>
+<p>Since you're using a shared virtual environment, the dependencies of both apps will be installed together.</p>
+<ol>
+<li><strong>Add .gitignore</strong></li>
+</ol>
+<p>To keep the repositories clean, exclude the <code>venv/</code> folder from being tracked by Git. Add the following line to the <code>.gitignore</code> file of each repository:</p>
+<pre><code class="language-bash">../venv/
+</code></pre>
+<h3 id="step-44-environment-variables">Step 4.4: Environment Variables</h3>
+<p>You have three options to set the environment variables. You can simply upload a <code>.env</code> file (or <code>secrets.toml</code>) to the server - not recommended but it's easy. You can store your variables in AWS Parameter Store - a free option although not as secure. Finally, if you would like to be 100% professional, you can store your variables in AWS Secrets Manager, which is fully secure but will cost you a few cents a month depending on the number of variables you store and how often you access them.
+I put detailed instructions on how to save variables in AWS Parameter Store and how to dynamically pass them to the app in my other article <a href="../par_store/">here</a>.</p>
+<h3 id="step-45-start-a-tmux-session-for-each-app">Step 4.5: Start a Tmux Session for Each App</h3>
+<h4 id="for-the-first-app">For the First App:</h4>
+<ol>
+<li><strong>Create and attach to a Tmux session:</strong></li>
+</ol>
+<pre><code class="language-bash">tmux new -s streamlit-app1
+</code></pre>
+<ol>
+<li><strong>Navigate to the app directory:</strong></li>
+</ol>
+<pre><code class="language-bash">cd ~/main_project_folder/app1/app1_code
+</code></pre>
+<ol>
+<li><strong>(Optional) Activate a virtual environment if needed:</strong></li>
+</ol>
+<pre><code class="language-bash">source venv/bin/activate
+</code></pre>
+<ol>
+<li><strong>Run the Streamlit app on port 8501:</strong></li>
+</ol>
+<pre><code class="language-bash">streamlit run app.py --server.port 8501
+</code></pre>
+<ol>
+<li>
+<p><strong>Detach from Tmux session:</strong></p>
+<p>Press <code>Ctrl+B</code>, release, then press <code>D</code>.</p>
+</li>
+</ol>
+<h4 id="for-the-second-app">For the Second App:</h4>
+<ol>
+<li><strong>Create another Tmux session:</strong></li>
+</ol>
+<pre><code class="language-bash">tmux new -s streamlit-app2
+</code></pre>
+<ol>
+<li><strong>Navigate to the second app's directory:</strong></li>
+</ol>
+<pre><code class="language-bash">cd ~/main_project_folder/app2/app2_code
+</code></pre>
+<ol>
+<li><strong>(Optional) Activate its virtual environment if applicable:</strong></li>
+</ol>
+<pre><code class="language-bash">source venv/bin/activate
+</code></pre>
+<ol>
+<li><strong>Run the second Streamlit app on port 8502:</strong></li>
+</ol>
+<pre><code class="language-bash">streamlit run app.py --server.port 8502
+</code></pre>
+<ol>
+<li>
+<p><strong>Detach from this Tmux session:</strong></p>
+<p>Press <code>Ctrl+B</code>, release, then press <code>D</code>.</p>
+</li>
+</ol>
+<p>Note: For additional Streamlit apps, repeat the Tmux session setup on different ports.</p>
+<h2 id="5-adding-database">5. Adding database</h2>
+<p>If you require a database to store login data for your app, I've made a separate article on how to set up a free database on AWS. You can find it <a href="../database_aws/">here</a>.</p>
+<h2 id="6-automating-startup-on-reboot-optional">6. Automating Startup on Reboot (Optional)</h2>
+<p>To ensure your apps start automatically after a reboot:</p>
+<h3 id="step-61-create-a-startup-script">Step 6.1: Create a Startup Script</h3>
+<ul>
+<li><strong>Create a script file:</strong></li>
+</ul>
+<pre><code class="language-bash">vim ~/start_streamlit_apps.sh
+</code></pre>
+<ul>
+<li><strong>Add the following content:</strong></li>
+</ul>
+<pre><code class="language-bash">#!/bin/bash
+
+# Start first app
+tmux new -d -s streamlit-app1 &quot;cd ~/app1 &amp;&amp; streamlit run app.py --server.port 8501&quot;
+
+# Start second app
+tmux new -d -s streamlit-app2 &quot;cd ~/app2 &amp;&amp; streamlit run app.py --server.port 8502&quot;
+</code></pre>
+<p>Adjust paths and ports according to your setup.</p>
+<ul>
+<li>
+<p><strong>Save and exit:</strong></p>
+<p>Press <code>Esc</code>, type <code>:wq</code>, then press <code>Enter</code>.</p>
+</li>
+<li>
+<p><strong>Make the script executable:</strong></p>
+</li>
+</ul>
+<pre><code class="language-bash">chmod +x ~/start_streamlit_apps.sh
+</code></pre>
+<h3 id="step-62-configure-crontab-to-run-script-at-boot">Step 6.2: Configure Crontab to Run Script at Boot</h3>
+<ul>
+<li><strong>Edit crontab:</strong></li>
+</ul>
+<pre><code class="language-bash">crontab -e
+</code></pre>
+<ul>
+<li><strong>Add this line at the end to run the script on reboot:</strong></li>
+</ul>
+<pre><code class="language-bash">@reboot /home/ec2-user/start_streamlit_apps.sh
+</code></pre>
+<p>Save and exit the editor.</p>
+<p>Now, when your server reboots, the script will automatically start your Streamlit apps in separate Tmux sessions.</p>
+<h2 id="7-summary-of-commands">7. Summary of Commands</h2>
+<h3 id="system-update">System Update:</h3>
+<pre><code class="language-bash">sudo dnf update -y
+</code></pre>
+<h3 id="install-dependencies">Install Dependencies:</h3>
+<pre><code class="language-bash">sudo dnf install -y python3.11 python3.11-devel git tmux nginx
+</code></pre>
+<h3 id="manage-tmux-sessions">Manage Tmux Sessions:</h3>
+<ul>
+<li><strong>Start new session:</strong></li>
+</ul>
+<pre><code class="language-bash">tmux new -s session_name
+</code></pre>
+<ul>
+<li>
+<p><strong>Detach session:</strong> Press <code>Ctrl+B</code>, then <code>D</code></p>
+</li>
+<li>
+<p><strong>List sessions:</strong></p>
+</li>
+</ul>
+<pre><code class="language-bash">tmux ls
+</code></pre>
+<h3 id="run-a-streamlit-app-in-tmux">Run a Streamlit App in Tmux:</h3>
+<pre><code class="language-bash">tmux new -d -s session_name &quot;cd /path/to/app &amp;&amp; streamlit run app.py --server.port PORT_NUMBER&quot;
+</code></pre>
+<h3 id="nginx-check-and-reload">Nginx Check and Reload:</h3>
+<pre><code class="language-bash">sudo nginx -t
+sudo systemctl reload nginx
+</code></pre>
+<h3 id="certbot-for-ssl">Certbot for SSL:</h3>
+<pre><code class="language-bash">sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com
+</code></pre>
+<h3 id="clone-a-repository-using-a-personal-access-token">Clone a Repository Using a Personal Access Token:</h3>
+<pre><code class="language-bash">git clone https://github.com/your_username/your_repo.git ~/app_directory
+</code></pre>
+<pre><code>When prompted for a password, use your GitHub personal access token.
+</code></pre>
+<h3 id="automate-startup">Automate Startup:</h3>
+<p>Create <code>~/start_streamlit_apps.sh</code>, set up crontab with:</p>
+<pre><code class="language-bash">@reboot /home/ec2-user/start_streamlit_apps.sh
+</code></pre>
+<h2 id="8-conclusion">8: Conclusion</h2>
+<p>To access your app, simply type your domain name into your browser. If you encounter any issues, you can check the logs located at <code>/var/log/nginx/error.log</code> or <code>/var/log/nginx/access.log</code>. Your app should now be up and running. Ensure that when you type <code>http</code>, you are redirected to <code>https</code>. Similarly, typing <code>www.yourdomain.com</code> should redirect you to your app. If you have any questions or need further assistance, feel free to ask in the comments below.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 12, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+<!-- overrides/partials/comments.html -->
+
+  <h2 id="__comments">Comments</h2>
+  <!-- Paste your Giscus snippet directly below this line -->
+  <script src="https://giscus.app/client.js"
+  data-repo="MateuszNowakowski2024/ds_ai_portfolio"
+  data-repo-id="R_kgDONTdthg"
+  data-category="General"
+  data-category-id="DIC_kwDONTdths4Ckl_V"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="1"
+  data-input-position="top"
+  data-theme="light"
+  data-lang="en"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async>
+</script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    // Register event handlers after document loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

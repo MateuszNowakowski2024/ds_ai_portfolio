@@ -1,0 +1,1578 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Portfolio of my great projects in Data Science and Artificial Intelligence!">
+      
+      
+        <meta name="author" content="Mateusz Nowakowski">
+      
+      
+      
+        <link rel="prev" href="../streamlit_aws/">
+      
+      
+        <link rel="next" href="../par_store/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
+    
+    
+      
+        <title>How to Set Up a Database and Connect to Your App on an AWS EC2 Instance - My Projects</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#how-to-set-up-a-database-and-connect-to-your-app-on-an-aws-ec2-instance" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="My Projects" class="md-header__button md-logo" aria-label="My Projects" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Projects
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              How to Set Up a Database and Connect to Your App on an AWS EC2 Instance
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/MateuszNowakowski2024/ds_ai_portfolio.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MateuszNowakowski2024/ds_ai_portfolio
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="My Projects" class="md-nav__button md-logo" aria-label="My Projects" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Projects
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/MateuszNowakowski2024/ds_ai_portfolio.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MateuszNowakowski2024/ds_ai_portfolio
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Current projects
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Current projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prompt_master/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prompt Master
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lily_2_0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lily 2.0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Previous projects
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Previous projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lily_1_0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lily 1.0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../estimator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Running Time Estimator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iris/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Iris
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../titanic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Titanic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tutorials
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../streamlit_aws/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to deploy multiple streamlit apps on a single EC2 instance AWS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    How to Set Up a Database and Connect to Your App on an AWS EC2 Instance
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    How to Set Up a Database and Connect to Your App on an AWS EC2 Instance
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#option-1-set-up-rds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 1: Set Up RDS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Option 1: Set Up RDS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#part-1-setting-up-a-postgresql-database-on-aws-rds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 1: Setting Up a PostgreSQL Database on AWS RDS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-2-configuring-security-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 2: Configuring Security Groups
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-3-connecting-from-an-ec2-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 3: Connecting from an EC2 Instance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-4-using-the-database-in-your-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 4: Using the Database in Your Applications
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-2-set-up-postgresql-on-the-ec2-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 2: Set Up PostgreSQL on the EC2 Instance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Option 2: Set Up PostgreSQL on the EC2 Instance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#part-1-launching-and-preparing-your-ec2-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 1: Launching and Preparing Your EC2 Instance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-2-installing-postgresql-on-the-ec2-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 2: Installing PostgreSQL on the EC2 Instance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-3-configuring-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 3: Configuring PostgreSQL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-4-creating-database-users-and-databases-credentials-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 4: Creating Database Users and Databases (Credentials Setup)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-5-connecting-your-application-to-the-postgresql-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 5: Connecting Your Application to the PostgreSQL Database
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Tips:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../par_store/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to securely retrieve environment variables from AWS Systems Manager Parameter Store
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Blog Project
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Blog Project
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../blog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    My Blog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Archive
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Archive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../blog/archive/2025/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2025
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../blog/archive/2024/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2024
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get in Touch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#option-1-set-up-rds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 1: Set Up RDS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Option 1: Set Up RDS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#part-1-setting-up-a-postgresql-database-on-aws-rds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 1: Setting Up a PostgreSQL Database on AWS RDS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-2-configuring-security-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 2: Configuring Security Groups
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-3-connecting-from-an-ec2-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 3: Connecting from an EC2 Instance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-4-using-the-database-in-your-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 4: Using the Database in Your Applications
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-2-set-up-postgresql-on-the-ec2-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 2: Set Up PostgreSQL on the EC2 Instance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Option 2: Set Up PostgreSQL on the EC2 Instance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#part-1-launching-and-preparing-your-ec2-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 1: Launching and Preparing Your EC2 Instance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-2-installing-postgresql-on-the-ec2-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 2: Installing PostgreSQL on the EC2 Instance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-3-configuring-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 3: Configuring PostgreSQL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-4-creating-database-users-and-databases-credentials-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 4: Creating Database Users and Databases (Credentials Setup)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-5-connecting-your-application-to-the-postgresql-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 5: Connecting Your Application to the PostgreSQL Database
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Tips:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="how-to-set-up-a-database-and-connect-to-your-app-on-an-aws-ec2-instance">How to Set Up a Database and Connect to Your App on an AWS EC2 Instance</h1>
+<p>If you need to connect to a database, you have two options:</p>
+<p><strong>Option 1:</strong>
+Use AWS RDS. It's free for the first year. You can use the free tier for MySQL, PostgreSQL, and MariaDB.</p>
+<p><strong>Option 2:</strong>
+Set up a database server on the same EC2 instance. This is not recommended for production but is a good option for development or if you are not expecting a lot of traffic.</p>
+<h2 id="option-1-set-up-rds">Option 1: Set Up RDS</h2>
+<h3 id="part-1-setting-up-a-postgresql-database-on-aws-rds">Part 1: Setting Up a PostgreSQL Database on AWS RDS</h3>
+<ol>
+<li>
+<p><strong>Log in to AWS Management Console:</strong></p>
+<ul>
+<li>Open the AWS Management Console and navigate to the RDS service.</li>
+</ul>
+</li>
+<li>
+<p><strong>Create a New Database Instance:</strong></p>
+<ul>
+<li>Click on "Create database."</li>
+<li>Under Engine options, select PostgreSQL.</li>
+<li>Choose a template that fits your needs (e.g., Free tier, Production).</li>
+</ul>
+</li>
+<li>
+<p><strong>Specify DB Details:</strong></p>
+<ul>
+<li>DB instance identifier: Provide a unique name for your database instance.</li>
+<li>Master username &amp; password: Set a strong master username and password. Make sure to note these credentials for later use.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure Instance Specifications:</strong></p>
+<ul>
+<li>Select an appropriate DB instance class based on performance needs.</li>
+<li>Allocate storage as needed.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure Connectivity:</strong></p>
+<ul>
+<li>Virtual Private Cloud (VPC): Choose the VPC where your EC2 instance resides (often the default VPC if you haven't set up a custom one).</li>
+<li>Public accessibility: For security reasons, if your EC2 is within the same VPC, you can set this to No. If connecting from outside the VPC, set this to Yes.</li>
+<li>Availability zone: Choose an availability zone that best suits your latency or redundancy requirements.</li>
+<li>VPC security groups: Either choose an existing security group or create a new one. You will later modify its inbound rules to allow connections from your EC2 instance.</li>
+</ul>
+</li>
+<li>
+<p><strong>Additional Configuration:</strong></p>
+<ul>
+<li>Specify an initial database name if you want RDS to create a database at launch.</li>
+<li>Configure backup retention, maintenance windows, and monitoring as needed.</li>
+<li>Click "Create database" at the bottom of the page.</li>
+</ul>
+</li>
+<li>
+<p><strong>Wait for the Instance to Launch:</strong></p>
+<ul>
+<li>It may take a few minutes for the database instance to become available. Once ready, you can see its endpoint and port on the RDS dashboard details page.</li>
+</ul>
+</li>
+</ol>
+<h3 id="part-2-configuring-security-groups">Part 2: Configuring Security Groups</h3>
+<ol>
+<li>
+<p><strong>Modify RDS Security Group Inbound Rules:</strong></p>
+<ul>
+<li>Navigate to the EC2 console and then to Security Groups.</li>
+<li>Find the security group associated with your RDS instance (the one selected/created during DB setup).</li>
+<li>Select Inbound rules and click "Edit inbound rules."</li>
+<li>Add a rule:</li>
+<li>Type: PostgreSQL (TCP 5432) or Custom TCP with port 5432.</li>
+<li>Source: Specify the security group of your EC2 instance or the private IP range of your VPC. Using the security group is recommended for tighter security.</li>
+<li>Save the changes.</li>
+</ul>
+</li>
+<li>
+<p><strong>(Optional) Verify VPC and Subnet Settings:</strong></p>
+<ul>
+<li>Ensure your EC2 instance and RDS instance are in the same VPC or that there is proper routing between VPCs.</li>
+<li>Confirm that network ACLs allow traffic on port 5432 between the instances.</li>
+</ul>
+</li>
+</ol>
+<h3 id="part-3-connecting-from-an-ec2-instance">Part 3: Connecting from an EC2 Instance</h3>
+<ol>
+<li>
+<p><strong>SSH into Your EC2 Instance:</strong></p>
+<ul>
+<li>Use your SSH client to connect to your EC2 instance:
+  <code>bash
+  ssh -i /path/to/your-key.pem ec2-user@&lt;EC2_PUBLIC_DNS_OR_IP&gt;</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Install PostgreSQL Client Tools on EC2:</strong></p>
+<ul>
+<li>Depending on your OS, install the PostgreSQL client. For Amazon Linux/CentOS:
+  <code>bash
+  sudo yum install postgresql -y</code></li>
+<li>For Ubuntu/Debian:
+  <code>bash
+  sudo apt-get update
+  sudo apt-get install postgresql-client -y</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Test Connection to the RDS PostgreSQL Instance:</strong></p>
+<ul>
+<li>Use the <code>psql</code> command-line tool to connect. Replace placeholders with your actual values:
+  <code>bash
+  psql --host=&lt;RDS_ENDPOINT&gt; --port=5432 --username=&lt;MASTER_USERNAME&gt; --dbname=&lt;DATABASE_NAME&gt;</code></li>
+<li>When prompted, enter the master password you set during RDS creation.</li>
+<li>If successful, you'll enter the PostgreSQL interactive terminal.</li>
+</ul>
+</li>
+<li>
+<p><strong>Troubleshoot Connection Issues:</strong></p>
+<ul>
+<li>If you cannot connect, verify:</li>
+<li>The RDS endpoint and port are correct.</li>
+<li>Security groups allow inbound traffic on port 5432 from the EC2 instance.</li>
+<li>The EC2 instance can reach the RDS endpoint (you can use tools like <code>telnet &lt;RDS_ENDPOINT&gt; 5432</code> or <code>nc -zv &lt;RDS_ENDPOINT&gt; 5432</code> to test connectivity).</li>
+<li>There are no network ACLs blocking the connection.</li>
+</ul>
+</li>
+</ol>
+<h3 id="part-4-using-the-database-in-your-applications">Part 4: Using the Database in Your Applications</h3>
+<ol>
+<li>
+<p><strong>Store Connection Details Securely:</strong></p>
+<ul>
+<li>Use environment variables or secure storage to store your DB credentials and connection details, rather than hardcoding them in your application.</li>
+</ul>
+</li>
+<li>
+<p><strong>Connect Using a Database Library/ORM:</strong></p>
+<ul>
+<li>In your application code running on EC2, use the appropriate PostgreSQL driver or ORM to establish a connection using the RDS endpoint, port, database name, username, and password. For example, in Python using <code>psycopg2</code>:
+  ```python
+  import psycopg2</li>
+</ul>
+<p>conn = psycopg2.connect(
+        host="<RDS_ENDPOINT>",
+        port=5432,
+        dbname="<DATABASE_NAME>",
+        user="<MASTER_USERNAME>",
+        password="<YOUR_PASSWORD>"
+  )
+  ```
+- Replace placeholders with actual values.</p>
+</li>
+<li>
+<p><strong>Perform Database Operations:</strong></p>
+<ul>
+<li>Once connected, you can run SQL queries, create tables, insert data, etc., from your application or using the <code>psql</code> CLI tool.</li>
+</ul>
+</li>
+</ol>
+<h2 id="option-2-set-up-postgresql-on-the-ec2-instance">Option 2: Set Up PostgreSQL on the EC2 Instance</h2>
+<h3 id="part-1-launching-and-preparing-your-ec2-instance">Part 1: Launching and Preparing Your EC2 Instance</h3>
+<ol>
+<li>
+<p><strong>Launch an EC2 Instance:</strong></p>
+<ul>
+<li>From the AWS Management Console, navigate to EC2 and launch a new instance.</li>
+<li>Choose an Amazon Machine Image (AMI) that suits your needs, such as Amazon Linux 2, Ubuntu, or another supported distribution.</li>
+<li>Configure instance details, add storage, and assign a security group that allows SSH (port 22) connections. You may later open port 5432 if you need remote DB access.</li>
+<li>Launch the instance with a key pair for SSH access.</li>
+</ul>
+</li>
+<li>
+<p><strong>SSH into Your EC2 Instance:</strong></p>
+<ul>
+<li>Use your terminal or SSH client to connect:
+  <code>bash
+  ssh -i /path/to/your-key.pem ec2-user@&lt;EC2_PUBLIC_DNS_OR_IP&gt;</code></li>
+<li>(Replace <code>ec2-user</code> with <code>ubuntu</code> for Ubuntu AMIs, etc.)</li>
+</ul>
+</li>
+</ol>
+<h3 id="part-2-installing-postgresql-on-the-ec2-instance">Part 2: Installing PostgreSQL on the EC2 Instance</h3>
+<ol>
+<li>
+<p><strong>For Amazon Linux 2 / RHEL/CentOS:</strong></p>
+<ul>
+<li>
+<p><strong>Update Packages:</strong>
+  <code>bash
+  sudo yum update -y</code></p>
+</li>
+<li>
+<p><strong>Install PostgreSQL:</strong>
+  <code>bash
+  sudo yum install -y postgresql-server postgresql-contrib</code></p>
+</li>
+<li>
+<p><strong>Initialize PostgreSQL Database:</strong>
+  <code>bash
+  sudo postgresql-setup initdb</code></p>
+</li>
+<li>
+<p><strong>Start PostgreSQL Service:</strong>
+  <code>bash
+  sudo systemctl start postgresql
+  sudo systemctl enable postgresql</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>For Ubuntu/Debian:</strong></p>
+<ul>
+<li>
+<p><strong>Update Packages:</strong>
+  <code>bash
+  sudo apt-get update</code></p>
+</li>
+<li>
+<p><strong>Install PostgreSQL:</strong>
+  <code>bash
+  sudo apt-get install -y postgresql postgresql-contrib</code></p>
+</li>
+<li>
+<p><strong>Ensure PostgreSQL is Running:</strong>
+  <code>bash
+  sudo systemctl start postgresql
+  sudo systemctl enable postgresql</code></p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="part-3-configuring-postgresql">Part 3: Configuring PostgreSQL</h3>
+<ol>
+<li>
+<p><strong>Edit PostgreSQL Configuration (if needed):</strong></p>
+<ul>
+<li>The primary configuration file is usually located at:</li>
+<li>Amazon Linux/RHEL/CentOS: <code>/var/lib/pgsql/data/postgresql.conf</code></li>
+<li>Ubuntu/Debian: <code>/etc/postgresql/&lt;version&gt;/main/postgresql.conf</code></li>
+<li><strong>Listening Addresses:</strong></li>
+<li>By default, PostgreSQL listens only on localhost. If your application resides on the same EC2 or you require external connections, update the <code>listen_addresses</code> line:
+     <code>conf
+     listen_addresses = '*'</code></li>
+<li>Save the file after making changes.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure Client Authentication:</strong></p>
+<ul>
+<li>Edit the <code>pg_hba.conf</code> file to control which hosts can connect and how they authenticate:</li>
+<li>Amazon Linux/RHEL/CentOS: <code>/var/lib/pgsql/data/pg_hba.conf</code></li>
+<li>Ubuntu/Debian: <code>/etc/postgresql/&lt;version&gt;/main/pg_hba.conf</code></li>
+<li>For local connections, the default configuration is typically sufficient. For remote access, add lines like:
+  <code>conf
+  host    all    all    0.0.0.0/0    md5</code></li>
+<li><strong>Security Note:</strong> Using <code>0.0.0.0/0</code> opens access from any IP address. For security, restrict this to specific IP ranges or networks as needed.</li>
+</ul>
+</li>
+<li>
+<p><strong>Restart PostgreSQL to Apply Changes:</strong>
+    <code>bash
+    sudo systemctl restart postgresql</code></p>
+</li>
+</ol>
+<h3 id="part-4-creating-database-users-and-databases-credentials-setup">Part 4: Creating Database Users and Databases (Credentials Setup)</h3>
+<ol>
+<li>
+<p><strong>Switch to the PostgreSQL User:</strong>
+    <code>bash
+    sudo -i -u postgres</code></p>
+</li>
+<li>
+<p><strong>Access the PostgreSQL Shell:</strong>
+    <code>bash
+    psql</code></p>
+</li>
+<li>
+<p><strong>Create a New Database User and Database:</strong></p>
+<ul>
+<li>Create a user: Replace <code>&lt;username&gt;</code> and <code>&lt;password&gt;</code> with your desired credentials.
+  <code>sql
+  CREATE USER &lt;username&gt; WITH PASSWORD '&lt;password&gt;';</code></li>
+<li>Create a database: Replace <code>&lt;dbname&gt;</code> with your database name.
+  <code>sql
+  CREATE DATABASE &lt;dbname&gt; OWNER &lt;username&gt;;</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Set User Privileges (if needed):</strong></p>
+<ul>
+<li>For example, to grant all privileges on the database to the user:
+  <code>sql
+  GRANT ALL PRIVILEGES ON DATABASE &lt;dbname&gt; TO &lt;username&gt;;</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Exit the <code>psql</code> shell and <code>postgres</code> user:</strong>
+    <code>sql
+    \q
+    exit</code></p>
+</li>
+<li>
+<p><strong>Note on Credentials:</strong></p>
+<ul>
+<li>The credentials for your database server consist of:</li>
+<li>Username: The PostgreSQL user you created.</li>
+<li>Password: The password you assigned to that user.</li>
+<li>Database Name: The database you created.</li>
+<li>Host: For connections from the same EC2 instance, use <code>localhost</code> or <code>127.0.0.1</code>. For remote connections, use the EC2 instance's public or private IP (if within the same VPC).</li>
+<li>Port: Default PostgreSQL port 5432 (unless configured otherwise).</li>
+</ul>
+</li>
+<li>
+<p><strong>Storing Credentials Securely:</strong></p>
+<ul>
+<li>Do not hardcode credentials into your application source code. Instead, store them in environment variables, configuration files with restricted permissions, or use AWS services like AWS Secrets Manager for secure storage.</li>
+</ul>
+</li>
+</ol>
+<h3 id="part-5-connecting-your-application-to-the-postgresql-database">Part 5: Connecting Your Application to the PostgreSQL Database</h3>
+<ol>
+<li>
+<p><strong>Install PostgreSQL Client Libraries in Your Application Environment:</strong></p>
+<ul>
+<li>Ensure that the environment where your application runs (which may also be the same EC2 instance or a different one) has the appropriate PostgreSQL client libraries or drivers installed for your programming language/framework.</li>
+</ul>
+</li>
+<li>
+<p><strong>Construct the Database Connection String:</strong></p>
+<ul>
+<li>The connection string will typically look like this:
+  <code>php
+  postgresql://&lt;username&gt;:&lt;password&gt;@&lt;host&gt;:&lt;port&gt;/&lt;dbname&gt;</code></li>
+<li>Example:
+  <code>bash
+  postgresql://myuser:mypassword@localhost:5432/mydatabase</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Configure Your Application:</strong></p>
+<ul>
+<li>Update your application's database configuration to use the connection string or individual connection parameters (host, port, database, username, password) that you created.</li>
+<li>For instance, in a Python application using SQLAlchemy, you might set:
+  <code>python
+  SQLALCHEMY_DATABASE_URI = 'postgresql://myuser:mypassword@localhost:5432/mydatabase'</code></li>
+<li>For Node.js with <code>pg</code> library:
+  <code>javascript
+  const { Client } = require('pg');
+  const client = new Client({
+     host: 'localhost',
+     port: 5432,
+     user: 'myuser',
+     password: 'mypassword',
+     database: 'mydatabase'
+  });
+  client.connect();</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Test the Database Connection:</strong></p>
+<ul>
+<li>Run your application and perform a test query or use a database client library to ensure the application can successfully connect to PostgreSQL and perform operations.</li>
+</ul>
+</li>
+</ol>
+<h3 id="additional-tips">Additional Tips:</h3>
+<ol>
+<li>
+<p><strong>Firewall and Security Groups:</strong></p>
+<ul>
+<li>If your application connects remotely to the PostgreSQL server, ensure the EC2 instance's security group allows inbound traffic on port 5432 from the application’s IP or network.</li>
+</ul>
+</li>
+<li>
+<p><strong>Managing Database Credentials:</strong></p>
+<ul>
+<li><strong>Environment Variables:</strong> You can set environment variables on the EC2 instance or application server to store credentials securely. For example, in Linux:
+  <code>bash
+  export DB_USER=myuser
+  export DB_PASSWORD=mypassword
+  export DB_NAME=mydatabase
+  export DB_HOST=localhost
+  export DB_PORT=5432</code></li>
+<li><strong>Configuration Files:</strong> Store credentials in a config file with restricted permissions (e.g., using Linux file permissions <code>chmod 600 config.file</code>).</li>
+<li><strong>AWS Secrets Manager:</strong> For improved security, consider storing credentials in AWS Secrets Manager and retrieving them programmatically within your application.</li>
+</ul>
+</li>
+<li>
+<p><strong>Securing PostgreSQL:</strong></p>
+<ul>
+<li>Regularly update PostgreSQL.</li>
+<li>Use strong passwords for database users.</li>
+<li>Limit network exposure by properly configuring <code>pg_hba.conf</code> and security groups.</li>
+</ul>
+</li>
+</ol>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 12, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+<!-- overrides/partials/comments.html -->
+
+  <h2 id="__comments">Comments</h2>
+  <!-- Paste your Giscus snippet directly below this line -->
+  <script src="https://giscus.app/client.js"
+  data-repo="MateuszNowakowski2024/ds_ai_portfolio"
+  data-repo-id="R_kgDONTdthg"
+  data-category="General"
+  data-category-id="DIC_kwDONTdths4Ckl_V"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="1"
+  data-input-position="top"
+  data-theme="light"
+  data-lang="en"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async>
+</script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    // Register event handlers after document loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
