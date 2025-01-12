@@ -1,6 +1,6 @@
 # Half Marathon Time Predictor App
 
-<a href="https://runest-app-yua3l.ondigitalocean.app/" class="md-button md-button--primary"> Link to the app</a>
+<a href="https://lily10coloringbooks.fun/" class="md-button md-button--primary"> Link to the app</a>
 
 ## Overview
 

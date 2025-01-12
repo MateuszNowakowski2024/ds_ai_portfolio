@@ -1,7 +1,6 @@
 site_name: My Projects
 site_author: Mateusz Nowakowski
-site_description: >-
-    Portfolio of my great projects in Data Science and Artificial Intelligence!
+site_description: Portfolio of my great projects in Data Science and Artificial Intelligence!
 
 repo_name: MateuszNowakowski2024/ds_ai_portfolio
 repo_url: https://github.com/MateuszNowakowski2024/ds_ai_portfolio.git
@@ -14,22 +13,27 @@ theme:
     primary: black
     accent: teal
 
+
 plugins:
   - search
-  - blog   
-  
+  - blog
+  - git-revision-date-localized
+ 
+
 nav:
-- Home: index.md
-- Current projects:
-  - "Prompt Master": prompt_master/index.md
-  - "Lily 2.0": lily_2_0/index.md
-- Previous projects:
-  - "Lily 1.0": lily_1_0/index.md
-  - "Running Time Estimator": estimator/index.md
-  - "Iris": iris/index.md
-  - "Titanic": titanic/index.md
-- Blog Project:
-    - Home: blog/index.md
-- Get in Touch: contact.md
-
-
+  - Home: index.md
+  - Current projects:
+      - Prompt Master: prompt_master/index.md
+      - Lily 2.0: lily_2_0/index.md
+  - Previous projects:
+      - Lily 1.0: lily_1_0/index.md
+      - Running Time Estimator: estimator/index.md
+      - Iris: iris/index.md
+      - Titanic: titanic/index.md
+  - Tutorials:
+      - How to deploy multiple streamlit apps on a single EC2 instance AWS: streamlit_aws/index.md
+      - How to Set Up a Database and Connect to Your App on an AWS EC2 Instance: database_aws/index.md
+      - How to securely retrieve environment variables from AWS Systems Manager Parameter Store: par_store/index.md
+  - Blog Project:
+      - Home: blog/index.md
+  - Get in Touch: contact.md

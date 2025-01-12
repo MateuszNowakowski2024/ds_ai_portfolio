@@ -5,7 +5,7 @@ comments: true
 <div style="text-align: center;">
   <img src="images/lily_logo_google.png" alt="Lily-1.0 Logo" title="Lily-1.0 Logo">
   <br>
-  <a href="https://lily-1-0-app-e5maz.ondigitalocean.app/" class="md-button md-button--primary">Lily-1.0 App</a>
+  <a href="https://lily-one-zero-coloring-app.fun/" class="md-button md-button--primary">Lily-1.0 App</a>
 </div>
 
 ## Overview
