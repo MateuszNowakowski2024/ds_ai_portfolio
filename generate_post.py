@@ -8,7 +8,7 @@ from llm import tutorial_post
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-def get_recent_posts_titles(directory="docs/blog/posts", limit=3):
+def get_recent_posts_titles(directory="docs/blog/posts", limit=25):
     """
     Retrieve titles of recent posts by reading from existing markdown files.
     Assumes that the title is in the YAML front matter or the first heading (# Title).

@@ -111,41 +111,74 @@ def blog_post(recent_titles, scraped_context):
     return response.choices[0].message.content.strip()
 
 def tutorial_post(recent_titles):
-    # Define a variety of topics to choose from
+    # Define an extensive variety of topics to choose from
     topics = [
-        "Python coding tutorial: data modeling with a neat code snippet",
-        "Python coding tutorial: classes and objects",
-        "Python coding tutorial: functions",
-        "Python coding tutorial: loops",
+        # Original Python coding tutorials
         "Python coding tutorial: conditional statements",
         "Python coding tutorial: data structures",
-        "Python coding tutorial: algorithms",
         "Python coding tutorial: file handling",
-        "Git and GitHub tutorial: terminal commands",
         "One-line data modeling techniques in Python",
-        "Data visualization tips and tricks with Matplotlib or Seaborn",
-        "Effective use of GitHub for version control and collaboration",
-        "Leveraging transfer learning in Python for advanced machine learning models",
         "Python coding tutorial: virtual environments and dependency management",
         "Python coding tutorial: writing and running tests",
         "Python coding tutorial: error handling and exceptions",
-        "Python coding tutorial: working with CSV and JSON files",
-        "Python coding tutorial: logging best practices",
         "Terminal tutorial: navigating the filesystem using `cd`, `ls`, and `pwd`",
         "Terminal tutorial: using `grep` and `find` for searching files",
         "Terminal tutorial: using `curl` and `wget` for data retrieval",
         "Terminal tutorial: automating tasks with `cron` jobs",
-        "Terminal tutorial: using `tar` and `zip` for file archiving and compression"
-        "Python coding tutorial: comprehensions (list, dictionary, and set)"
-        "Python coding tutorial: working with APIs and HTTP requests"
-        "Python coding tutorial: regular expressions for text processing"
-        "Python coding tutorial: multithreading and multiprocessing"
-        "Python coding tutorial: working with dates and times"
-        "Python coding tutorial: decorators and advanced function usage"
-        "Python coding tutorial: context managers and the with statement"
-        "Python coding tutorial: creating and using Python packages"
-        "Python coding tutorial: exploring Python's collections module"
-        "Python coding tutorial: introduction to asynchronous programming"
+        "Python coding tutorial: comprehensions (list, dictionary, and set)",
+        "Python coding tutorial: working with APIs and HTTP requests",
+        "Python coding tutorial: regular expressions for text processing",
+        "Python coding tutorial: multithreading and multiprocessing",
+        "Python coding tutorial: working with dates and times",
+        "Python coding tutorial: decorators and advanced function usage",
+        "Python coding tutorial: context managers and the with statement",
+        "Python coding tutorial: creating and using Python packages",
+        "Python coding tutorial: exploring Python's collections module",
+        "Python coding tutorial: introduction to asynchronous programming",
+
+        # Additional Python libraries and frameworks
+        "Data Analysis with Pandas: Harnessing DataFrames",
+        "Visualizing Data Beautifully with Matplotlib",
+        "Interactive Data Visualization with Plotly",
+        "Machine Learning Simplified with Scikit-Learn",
+        "Building Deep Learning Models with TensorFlow",
+        "Natural Language Processing with NLTK",
+        "Web Development Made Easy with Flask",
+        "Web Apps at Scale with Django",
+        "Automation Tasks Simplified with PyAutoGUI",
+        "Creating Modern GUIs with Tkinter",
+        "Efficient Array Computing with NumPy",
+        "Working with APIs Made Simple: Requests Library",
+        "Advanced Web Scraping Techniques with Beautiful Soup",
+        "Seamless Task Scheduling with APScheduler",
+        "Automate Excel Tasks with OpenPyXL",
+        "Image Processing Basics with Pillow",
+        "Real-Time Data Streaming with Kafka-Python",
+        "Build Command-Line Interfaces Effortlessly with Click",
+        "Automated Testing Made Easy with Pytest",
+        "Time Series Analysis with Prophet",
+
+        # Advanced Libraries
+        "Symbolic Mathematics with SymPy",
+        "Interactive Data Science with JupyterLab",
+        "Managing ML Lifecycles with MLflow",
+        "Deep Learning Flexibility with PyTorch",
+        "Rapid Deep Learning Prototyping with FastAI",
+        "Gradient Boosting with XGBoost",
+        "Advanced Gradient Boosting with LightGBM",
+        "Scalable Gradient Boosting with CatBoost",
+        "Explainable Machine Learning with SHAP",
+        "Efficient Hyperparameter Tuning with Optuna",
+        "AutoML Made Simple with PyCaret",
+        "Distributed Data Processing with Dask",
+        "Accelerated Machine Learning with RAPIDS",
+        "Time-Series Forecasting with sktime",
+        "State-of-the-Art NLP with SpaCy",
+        "Efficient Reinforcement Learning with Stable-Baselines3",
+        "Deep Reinforcement Learning with RLlib",
+        "Bayesian Modeling with PyMC",
+        "Deploying Machine Learning Models with Streamlit",
+        "Production-Ready AI Pipelines with Kubeflow"
     ]
 
     chosen_topic = random.choice(topics)
@@ -153,7 +186,7 @@ def tutorial_post(recent_titles):
     # Create a prompt that references recent posts to avoid repetition
     recent_posts_str = "\n".join([f"- {t}" for t in recent_titles]) if recent_titles else "No recent posts found."
     prompt = (
-        f"Write a detailed blog post (around 600 words) on {chosen_topic}. "
+        f"Write a detailed blog post (around 800 words) on {chosen_topic}. "
         f"The writing style should be casual, yet informative and technical. "
         f"Include headings, an introduction, and a conclusion. "
         f"Avoid repeating content and topics covered in recent posts:\n{recent_posts_str}\n\n"
