@@ -3,9 +3,13 @@ comments: true
 ---
 # Lily-1.0 Advanced Coloring Book Generator!
 <div style="text-align: center;">
-  <img src="images/lily_logo_google.png" alt="Lily-1.0 Logo" title="Lily-1.0 Logo">
+  <img src="images/logo.png" alt="Lily-1.0 Logo" title="Lily-1.0 Logo" style="margin-bottom: 20px;">
   <br>
-  <a href="https://lily-one-zero-coloring-app.fun/" class="md-button md-button--primary">Lily-1.0 App</a>
+  <div style="display: inline-flex; gap: 10px;">
+    <a href="https://lily-one-zero-coloring-app.fun/" class="md-button md-button--primary">Lily-1.0 App</a>
+    <a href="https://lily10coloringbooks.fun/" class="md-button md-button--primary">Website</a>
+    <a href="https://www.instagram.com/lily_one_zero?igsh=MXBocHU0NG9nODFs&utm_source=qr" class="md-button md-button--primary">Instagram</a>
+  </div>
 </div>
 
 ## Overview

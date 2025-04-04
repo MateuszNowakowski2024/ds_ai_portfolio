@@ -23,6 +23,7 @@ plugins:
 nav:
   - Home: index.md
   - Current projects:
+      - Credit Aproval Prediction: credit_app/index.md
       - Prompt Master: prompt_master/index.md
       - Lily 2.0: lily_2_0/index.md
   - Previous projects:
