@@ -13,10 +13,8 @@
       
       
       
-        <link rel="prev" href="../../02/python-coding-tutorial-working-with-csv-and-json-files/">
+        <link rel="prev" href="../../02/the-future-of-data-science-browser-based-model-training-for-everyone/">
       
-      
-        <link rel="next" href="../../09/python-coding-tutorial-functions/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
@@ -24,7 +22,7 @@
     
     
       
-        <title>The Future of AI: Bridging the Gap with Retrieval Augmented Generation - My Projects</title>
+        <title>Python Coding Tutorial: Decorators and Advanced Function Usage - My Projects</title>
       
     
     
@@ -74,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#the-future-of-ai-bridging-the-gap-with-retrieval-augmented-generation" class="md-skip">
+        <a href="#python-coding-tutorial-decorators-and-advanced-function-usage" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              The Future of AI: Bridging the Gap with Retrieval Augmented Generation
+              Python Coding Tutorial: Decorators and Advanced Function Usage
             
           </span>
         </div>
@@ -865,20 +863,101 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-is-retrieval-augmented-generation" class="md-nav__link">
+  <a href="#what-are-decorators" class="md-nav__link">
     <span class="md-ellipsis">
-      What is Retrieval Augmented Generation?
+      What Are Decorators?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Are Decorators?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-simple-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Simple Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-use-decorators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Use Decorators?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-function-usage-closures-and-first-class-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Function Usage: Closures and First-Class Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Function Usage: Closures and First-Class Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#closures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Closures
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first-class-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      First-Class Functions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chaining-decorators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chaining Decorators
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#building-rag-systems-with-haystack" class="md-nav__link">
+  <a href="#use-cases-for-decorators" class="md-nav__link">
     <span class="md-ellipsis">
-      Building RAG Systems with Haystack
+      Use Cases for Decorators
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Use Cases for Decorators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caching-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Caching Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -928,7 +1007,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2025-01-06 00:00:00+00:00" class="md-ellipsis">January 6, 2025</time>
+                        <time datetime="2025-06-05 00:00:00+00:00" class="md-ellipsis">June 5, 2025</time>
                       </div>
                     </li>
                     
@@ -940,7 +1019,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
                           <span class="md-ellipsis">
                             
-                              2 min read
+                              4 min read
                             
                           </span>
                         </div>
@@ -967,18 +1046,120 @@
   
 
 
-<h1 id="the-future-of-ai-bridging-the-gap-with-retrieval-augmented-generation">The Future of AI: Bridging the Gap with Retrieval Augmented Generation</h1>
+<h1 id="python-coding-tutorial-decorators-and-advanced-function-usage">Python Coding Tutorial: Decorators and Advanced Function Usage</h1>
 <h2 id="introduction">Introduction</h2>
-<p>As the landscape of artificial intelligence continues to evolve, one of the most exciting advancements on the horizon is Retrieval Augmented Generation (RAG). This innovative approach is transforming how we leverage large language models, merging the power of retrieval systems with generative capabilities. In this post, we’ll delve into what RAG is, its significance, and why it’s a game-changer for data scientists and AI enthusiasts alike.</p>
+<p>Hey there, fellow Python enthusiasts! If you're diving into the world of Python, you might have already encountered functions—a fundamental building block of programming. But today, we're going to elevate your function game to a whole new level with decorators and advanced function usage. Decorators are a nifty feature that allows you to modify or enhance the behavior of functions or methods at definition time. They can help you write cleaner code, keep your logic DRY (Don't Repeat Yourself), and make your programs more expressive.</p>
 <!-- more -->
-<h2 id="what-is-retrieval-augmented-generation">What is Retrieval Augmented Generation?</h2>
-<p>Retrieval Augmented Generation is a technique that enhances the performance of generative models by incorporating relevant external information during the generation process. Essentially, it allows models to pull data from large databases or documents, tailoring responses based on specific contexts, which can significantly improve the accuracy and relevance of the generated content.</p>
-<p>The foundational concept here is simple: instead of relying solely on pre-trained knowledge, RAG systems can fetch up-to-date data to inform their responses. This is particularly important in fields like customer support, content creation, and even scientific research where precision and relevance are paramount.</p>
-<h2 id="building-rag-systems-with-haystack">Building RAG Systems with Haystack</h2>
-<p>If you're intrigued by RAG, you'll be pleased to know that platforms like Haystack are making it easier to develop such systems. Haystack provides a framework for building RAG applications, allowing developers to seamlessly integrate retrieval and generation processes. This means that you can create applications that not only produce coherent and contextually relevant text but also ensure the information is accurate and timely.</p>
-<p>For example, a RAG system could be used in an AI-powered automated blog where the model retrieves the latest research or news articles to provide readers with well-informed insights, thereby enhancing the value of the content produced.</p>
+<p>By the end of this post, you’ll have a solid grasp of decorators, how they work, and when to use them. So, grab your favorite coding beverage, and let’s get started!</p>
+<h2 id="what-are-decorators">What Are Decorators?</h2>
+<p>At their core, decorators are functions that take another function as an argument and extend or alter its behavior without explicitly modifying it. This is an excellent way to add functionality to existing code without changing the original function’s code.</p>
+<h3 id="a-simple-example">A Simple Example</h3>
+<p>Let’s start with a basic example. Suppose we want to log the execution time of a function, which is a common requirement in performance testing. Here’s how you might implement it with a decorator:</p>
+<pre><code class="language-python">import time
+
+def timer_decorator(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        print(f&quot;Function '{func.__name__}' took {end_time - start_time:.4f} seconds to execute.&quot;)
+        return result
+    return wrapper
+
+@timer_decorator
+def slow_function():
+    time.sleep(2)
+    return &quot;Finished!&quot;
+
+slow_function()
+</code></pre>
+<p>In this example, <code>timer_decorator</code> is our decorator. The <code>wrapper</code> function inside it calls the original function and measures its execution time, printing the result. The <code>@timer_decorator</code> syntax is a shorthand for applying the decorator to <code>slow_function()</code>.</p>
+<h3 id="why-use-decorators">Why Use Decorators?</h3>
+<ol>
+<li>
+<p><strong>Code Reusability</strong>: Instead of duplicating code for logging or authentication across multiple functions, you can simply apply a decorator.</p>
+</li>
+<li>
+<p><strong>Separation of Concerns</strong>: Keeping your core logic clean while handling cross-cutting concerns (like logging or access control) separately.</p>
+</li>
+<li>
+<p><strong>Enhanced Readability</strong>: By abstracting behavior into decorators, your code becomes cleaner and easier to understand.</p>
+</li>
+</ol>
+<h2 id="advanced-function-usage-closures-and-first-class-functions">Advanced Function Usage: Closures and First-Class Functions</h2>
+<p>To fully appreciate decorators, it helps to understand closures and first-class functions in Python.</p>
+<h3 id="closures">Closures</h3>
+<p>A closure is a nested function that remembers the values of its enclosing scope even after the outer function has finished executing. Here’s a simple example:</p>
+<pre><code class="language-python">def outer_function(msg):
+    def inner_function():
+        print(msg)
+    return inner_function
+
+greet = outer_function(&quot;Hello, World!&quot;)
+greet()  # Outputs: Hello, World!
+</code></pre>
+<p>In this case, <code>inner_function</code> is a closure that captures the variable <code>msg</code> from <code>outer_function</code>.</p>
+<h3 id="first-class-functions">First-Class Functions</h3>
+<p>In Python, functions are first-class citizens, meaning they can be passed around as arguments, returned from other functions, and assigned to variables. This trait allows for powerful functional programming techniques, such as map, filter, and reduce. Here’s a quick rundown:</p>
+<pre><code class="language-python">def square(x):
+    return x * x
+
+numbers = [1, 2, 3, 4, 5]
+squared_numbers = list(map(square, numbers))
+print(squared_numbers)  # Outputs: [1, 4, 9, 16, 25]
+</code></pre>
+<h2 id="chaining-decorators">Chaining Decorators</h2>
+<p>One of the powerful features of decorators is the ability to stack them. You can apply multiple decorators to a single function, enhancing its functionality in layers. For example:</p>
+<pre><code class="language-python">def uppercase_decorator(func):
+    def wrapper(*args, **kwargs):
+        return func(*args, **kwargs).upper()
+    return wrapper
+
+@uppercase_decorator
+@timer_decorator
+def greet(name):
+    time.sleep(1)
+    return f&quot;Hello, {name}!&quot;
+
+print(greet(&quot;Alice&quot;))  # Outputs: Function 'greet' took 1.000x seconds to execute. 'HELLO, ALICE!'
+</code></pre>
+<p>In this case, <code>greet</code> is first processed by <code>timer_decorator</code>, and then by <code>uppercase_decorator</code>. </p>
+<h2 id="use-cases-for-decorators">Use Cases for Decorators</h2>
+<p>Now that you have a basic understanding, let's look at some practical use cases:</p>
+<ol>
+<li>
+<p><strong>Logging</strong>: As shown in our initial example, decorators can log function calls or errors without cluttering the function's core logic.</p>
+</li>
+<li>
+<p><strong>Access Control</strong>: You can create decorators that restrict access to certain functions based on user roles or permissions.</p>
+</li>
+<li>
+<p><strong>Caching</strong>: By creating a caching decorator, you can store the results of expensive function calls and return the cached result when the same inputs occur again.</p>
+</li>
+</ol>
+<h3 id="caching-example">Caching Example</h3>
+<pre><code class="language-python">def cache_decorator(func):
+    cache = {}
+
+    def wrapper(*args):
+        if args in cache:
+            return cache[args]
+        result = func(*args)
+        cache[args] = result
+        return result
+    return wrapper
+
+@cache_decorator
+def fibonacci(n):
+    if n &lt;= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+
+print(fibonacci(10))  # Outputs: 55
+</code></pre>
 <h2 id="conclusion">Conclusion</h2>
-<p>The rise of Retrieval Augmented Generation represents a significant leap forward in the capabilities of AI. By merging retrieval techniques with generative models, we can create systems that are not only more relevant but also more adaptive to the constantly changing information landscape. As we continue to explore this exciting frontier, tools like Haystack will be crucial in empowering developers and data scientists to harness the true potential of RAG. Keep an eye on this space; the future of AI is not just about generating text, but about generating the right text, at the right time.</p>
+<p>And there you have it! We've explored the fascinating world of decorators and advanced function usage in Python. From understanding the fundamentals of decorators to applying them in various practical scenarios, you now have the tools to write cleaner, more efficient code. Whether for logging, access control, or caching, decorators can enhance your coding experience.</p>
+<p>As you continue your Python journey, don’t hesitate to experiment with your own decorators. The ability to modify function behavior dynamically opens up a world of possibilities. Happy coding, and until next time, keep pushing those Python boundaries!</p>
 
 
 
@@ -999,7 +1180,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 2, 2025 11:31:19 UTC">June 2, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 5, 2025 11:27:49 UTC">June 5, 2025</span>
   </span>
 
     
