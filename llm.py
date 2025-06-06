@@ -28,7 +28,7 @@ def generate_intro_thu(title, summary_text, blog_url):
     )
     
     response = openai.chat.completions.create(
-        model="gpt-4o-mini",
+        model="gpt-4o",
         messages=[
             {"role": "system", "content": "You are a professional content creator with a flair for catchy, engaging marketing copy."},
             {"role": "user", "content": prompt}
@@ -67,7 +67,7 @@ def generate_intro_mon(title, summary_text, blog_url):
     )
     
     response = openai.chat.completions.create(
-        model="gpt-4o-mini",
+        model="gpt-4o",
         messages=[
             {"role": "system", "content": "You are a professional content creator with a flair for catchy, engaging marketing copy."},
             {"role": "user", "content": prompt}
@@ -99,7 +99,7 @@ def blog_post(recent_titles, scraped_context):
     )
 
     response = openai.chat.completions.create(
-        model="gpt-4o-mini",
+        model="gpt-4o",
         messages=[
             {"role": "system", "content": "You are a talented aspiring data scientist and AI enthusiast."},
             {"role": "user", "content": prompt}
