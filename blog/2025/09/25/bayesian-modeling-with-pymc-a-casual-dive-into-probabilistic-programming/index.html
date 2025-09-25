@@ -13,10 +13,8 @@
       
       
       
-        <link rel="prev" href="../../11/time-series-analysis-with-prophet-your-go-to-guide-for-forecasting/">
+        <link rel="prev" href="../../22/bridging-the-ai-economic-divide-a-deep-dive-into-global-ai-adoption/">
       
-      
-        <link rel="next" href="../../18/interactive-data-visualization-with-plotly-elevate-your-data-game/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
@@ -24,7 +22,7 @@
     
     
       
-        <title>Embracing Diversity: The New Wave of AI User Demographics and Applications - My Projects</title>
+        <title>Bayesian Modeling with PyMC: A Casual Dive into Probabilistic Programming - My Projects</title>
       
     
     
@@ -74,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#embracing-diversity-the-new-wave-of-ai-user-demographics-and-applications" class="md-skip">
+        <a href="#bayesian-modeling-with-pymc-a-casual-dive-into-probabilistic-programming" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Embracing Diversity: The New Wave of AI User Demographics and Applications
+              Bayesian Modeling with PyMC: A Casual Dive into Probabilistic Programming
             
           </span>
         </div>
@@ -856,36 +854,87 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#a-shift-in-ai-user-demographics" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      A Shift in AI User Demographics
+      Introduction
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#ai-applications-from-heavy-machinery-to-audio-innovation" class="md-nav__link">
+  <a href="#what-is-bayesian-modeling" class="md-nav__link">
     <span class="md-ellipsis">
-      AI Applications: From Heavy Machinery to Audio Innovation
+      What is Bayesian Modeling?
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-role-of-ai-agents-in-job-markets" class="md-nav__link">
+  <a href="#why-use-bayesian-modeling" class="md-nav__link">
     <span class="md-ellipsis">
-      The Role of AI Agents in Job Markets
+      Why Use Bayesian Modeling?
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion-the-future-of-ai-is-diverse-and-expansive" class="md-nav__link">
+  <a href="#getting-started-with-pymc" class="md-nav__link">
     <span class="md-ellipsis">
-      Conclusion: The Future of AI is Diverse and Expansive
+      Getting Started with PyMC
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started with PyMC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-simple-example-bayesian-linear-regression" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Simple Example: Bayesian Linear Regression
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpreting-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpreting Results
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-topics-hierarchical-modeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Topics: Hierarchical Modeling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
     </span>
   </a>
   
@@ -928,7 +977,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2025-09-15 00:00:00+00:00" class="md-ellipsis">September 15, 2025</time>
+                        <time datetime="2025-09-25 00:00:00+00:00" class="md-ellipsis">September 25, 2025</time>
                       </div>
                     </li>
                     
@@ -940,7 +989,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
                           <span class="md-ellipsis">
                             
-                              3 min read
+                              4 min read
                             
                           </span>
                         </div>
@@ -967,20 +1016,96 @@
   
 
 
-<h1 id="embracing-diversity-the-new-wave-of-ai-user-demographics-and-applications">Embracing Diversity: The New Wave of AI User Demographics and Applications</h1>
-<p>Artificial Intelligence (AI) is undergoing a fascinating evolution, not only in its applications and capabilities but also in its user demographics. Recent data highlights a significant shift in AI user patterns, particularly with the changing demographics of ChatGPT users. Meanwhile, new AI applications are redefining industries, from construction to audio production. Let's dive deep into these changes and what they mean for the future of AI.</p>
-<h2 id="a-shift-in-ai-user-demographics">A Shift in AI User Demographics</h2>
+<h1 id="bayesian-modeling-with-pymc-a-casual-dive-into-probabilistic-programming">Bayesian Modeling with PyMC: A Casual Dive into Probabilistic Programming</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Bayesian modeling is like having a crystal ball for data analysis. It allows you to make predictions and conclusions based on uncertain data by updating your beliefs with new evidence. Enter PyMC, a powerful Python library that makes Bayesian modeling more accessible than ever. Whether you’re a seasoned statistician or a curious data enthusiast, PyMC opens up a world where probability and programming unite.</p>
 <!-- more -->
-<p>One of the most intriguing developments in the AI landscape is the changing demographic profile of AI users. OpenAI's recent economic report reveals a pivotal shift in ChatGPT's user base, with women now constituting a larger portion of its users than men. This shift is a remarkable change from the platform's initial male-dominated usage patterns, where approximately 80% of users were male.</p>
-<p>This change reflects a broader adoption of AI tools across different demographic groups, suggesting that AI is becoming more accessible and appealing to a diverse range of users. Such demographic shifts are crucial as they can influence the direction of AI development and the types of features and applications prioritized by companies. As AI becomes more entrenched in everyday life, understanding and catering to a diverse user base will be vital for the continued growth and success of AI technologies.</p>
-<h2 id="ai-applications-from-heavy-machinery-to-audio-innovation">AI Applications: From Heavy Machinery to Audio Innovation</h2>
-<p>Beyond shifting user demographics, AI continues to revolutionize various industries with innovative applications. For instance, the automation of heavy construction equipment by Xpanner represents a significant leap in the use of physical AI systems. This retrofit system automates complex site tasks like pile driving, promising to cut costs and boost efficiency. The integration of AI in construction not only optimizes operations but also enhances safety by reducing the need for human intervention in hazardous tasks.</p>
-<p>In the realm of audio production, Stability AI's newly released audio generation model is set to transform enterprise-level audio production. With features like rapid inference speeds and audio inpainting, this model is poised to enhance the creative and operational capabilities of industries reliant on audio content. This innovation underscores the transformative potential of AI in creative fields, paving the way for more dynamic and efficient content production processes.</p>
-<h2 id="the-role-of-ai-agents-in-job-markets">The Role of AI Agents in Job Markets</h2>
-<p>AI is also making strides in the job market, particularly through the introduction of AI agents designed to aid job seekers and recruiters. Indeed's unveiling of these AI agents highlights the increasing role of AI in streamlining employment processes. These agents can assist in matching candidates with suitable job opportunities and providing recruiters with valuable insights, potentially revolutionizing how we approach employment.</p>
-<h2 id="conclusion-the-future-of-ai-is-diverse-and-expansive">Conclusion: The Future of AI is Diverse and Expansive</h2>
-<p>The current wave of AI advancements reflects a fascinating intersection of diversity in user demographics and innovative applications across industries. As more women engage with AI technologies like ChatGPT, and as AI finds new applications in fields like construction and audio production, the landscape of AI is becoming increasingly rich and varied.</p>
-<p>These changes not only underscore the versatility of AI but also highlight the importance of inclusivity in technology development. As AI continues to evolve, embracing diversity and fostering innovation across sectors will be pivotal in shaping a future where AI is accessible, effective, and enriching for all. Whether it's through the lens of demographic shifts or novel applications, the trajectory of AI is one of exciting possibilities and transformative potential.</p>
+<p>In this blog post, we’ll explore the fundamentals of Bayesian modeling using PyMC, its advantages, and how you can get started with some practical examples. So grab your favorite beverage, and let’s dive into the probabilistic pool!</p>
+<h2 id="what-is-bayesian-modeling">What is Bayesian Modeling?</h2>
+<p>At its core, Bayesian modeling is based on Bayes' Theorem, which describes the probability of an event based on prior knowledge of conditions related to the event. The theorem can be expressed mathematically as:</p>
+<p>[
+P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}
+]</p>
+<p>Where:
+- (P(A|B)) is the posterior probability (what you want to know).
+- (P(B|A)) is the likelihood (the probability of the evidence given the hypothesis).
+- (P(A)) is the prior probability (your initial belief about the hypothesis).
+- (P(B)) is the marginal likelihood (the total probability of the evidence).</p>
+<p>This framework allows us to update our beliefs (the prior) in light of new data (the likelihood), ultimately arriving at a revised belief (the posterior).</p>
+<h2 id="why-use-bayesian-modeling">Why Use Bayesian Modeling?</h2>
+<ol>
+<li>
+<p><strong>Uncertainty Quantification</strong>: Unlike frequentist approaches that provide point estimates, Bayesian methods yield distributions, capturing uncertainty.</p>
+</li>
+<li>
+<p><strong>Flexibility</strong>: Bayesian models can be applied to a wide range of problems, from simple linear regressions to complex hierarchical models.</p>
+</li>
+<li>
+<p><strong>Incorporating Prior Knowledge</strong>: You can include prior information which can be particularly useful in domains where data is scarce.</p>
+</li>
+<li>
+<p><strong>Model Comparison</strong>: Bayesian methods allow for direct comparisons between models using Bayes factors, providing a more nuanced view of model performance.</p>
+</li>
+</ol>
+<h2 id="getting-started-with-pymc">Getting Started with PyMC</h2>
+<p>PyMC is a fantastic tool for building Bayesian models in Python. It leverages probabilistic programming, giving you the ability to specify complex models intuitively. Here’s how to get started.</p>
+<h3 id="installation">Installation</h3>
+<p>To install PyMC, simply run:</p>
+<pre><code class="language-bash">pip install pymc
+</code></pre>
+<h3 id="a-simple-example-bayesian-linear-regression">A Simple Example: Bayesian Linear Regression</h3>
+<p>Let’s take a look at a basic example of Bayesian linear regression. Imagine you have data on the number of hours studied and corresponding test scores. You want to model the relationship between study hours and scores.</p>
+<pre><code class="language-python">import pymc as pm
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Simulated data
+np.random.seed(42)
+study_hours = np.random.normal(5, 2, 100)
+test_scores = 50 + 10 * study_hours + np.random.normal(0, 10, 100)
+
+# Bayesian Linear Regression Model
+with pm.Model() as model:
+    # Priors for unknown model parameters
+    alpha = pm.Normal('alpha', mu=0, sigma=10)
+    beta = pm.Normal('beta', mu=0, sigma=10)
+    sigma = pm.HalfNormal('sigma', sigma=1)
+
+    # Expected value of outcome
+    mu = alpha + beta * study_hours
+
+    # Likelihood (sampling distribution) of observations
+    Y_obs = pm.Normal('Y_obs', mu=mu, sigma=sigma, observed=test_scores)
+
+    # Inference
+    trace = pm.sample(2000, tune=1000, return_inferencedata=False)
+
+# Plotting the results
+pm.traceplot(trace)
+plt.show()
+</code></pre>
+<p>In this example, we defined priors for the intercept (<code>alpha</code>), slope (<code>beta</code>), and noise (<code>sigma</code>). We then specified the likelihood of our observed data (<code>Y_obs</code>) and used MCMC sampling to draw samples from the posterior distribution.</p>
+<h3 id="interpreting-results">Interpreting Results</h3>
+<p>After running the model, PyMC provides a trace plot. The plot shows the distributions of the parameters, giving us insight into their posterior estimates. For instance, if the <code>beta</code> coefficient has a high probability density around a positive value, it suggests a strong positive relationship between study hours and test scores.</p>
+<h2 id="advanced-topics-hierarchical-modeling">Advanced Topics: Hierarchical Modeling</h2>
+<p>For those who want to take a step further, hierarchical modeling is a powerful approach in Bayesian statistics. It allows you to model data that is grouped or nested. For example, if you’re analyzing student test scores across different schools, a hierarchical model can account for variability both within and between schools.</p>
+<p>With PyMC, you can easily define these models by nesting levels of parameters. Here's a quick snippet to illustrate the concept:</p>
+<pre><code class="language-python">with pm.Model() as hierarchical_model:
+    # Hyperpriors for group level
+    mu_a = pm.Normal('mu_a', mu=0, sigma=10)
+    sigma_a = pm.HalfNormal('sigma_a', sigma=1)
+
+    # Group-specific intercepts
+    a = pm.Normal('a', mu=mu_a, sigma=sigma_a, shape=n_schools)
+
+    # Observed data likelihood
+    Y_obs = pm.Normal('Y_obs', mu=a[school_idx], sigma=sigma, observed=test_scores)
+</code></pre>
+<p>In this hierarchical model, <code>mu_a</code> represents the overall average intercept across all schools, while <code>a</code> captures school-specific variations.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Bayesian modeling with PyMC is a powerful approach that goes beyond traditional statistical methods. Its ability to handle uncertainty, incorporate prior knowledge, and provide insightful model comparisons makes it a valuable tool for data scientists and statisticians alike. </p>
+<p>Whether you're working on a simple regression or a complex hierarchical model, PyMC provides the flexibility and ease of use needed to bring your Bayesian models to life. As you dive deeper into the world of probabilistic programming, remember that each model tells a story, and with PyMC, you have the tools to narrate it.</p>
+<p>So, are you ready to explore the endless possibilities of Bayesian modeling? Grab PyMC, get started, and let the probabilities guide you! Happy modeling!</p>
 
 
 
@@ -1001,7 +1126,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 22, 2025 11:30:06 UTC">September 22, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 25, 2025 11:25:57 UTC">September 25, 2025</span>
   </span>
 
     
