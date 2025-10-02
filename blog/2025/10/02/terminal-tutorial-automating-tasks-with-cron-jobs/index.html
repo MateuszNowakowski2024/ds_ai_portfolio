@@ -13,14 +13,12 @@
       
       
       
-        <link rel="prev" href="../../12/the-art-of-debugging-essential-techniques-for-every-data-scientist/">
+        <link rel="prev" href="../../../09/25/bayesian-modeling-with-pymc-a-casual-dive-into-probabilistic-programming/">
       
-      
-        <link rel="next" href="../../19/embracing-serverless-machine-learning-a-new-frontier-in-ai-deployment/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
     
     
       
@@ -28,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.e53b48f4.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.2a3383ac.min.css">
       
         
         <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -167,7 +165,7 @@
         <a href="https://github.com/MateuszNowakowski2024/ds_ai_portfolio.git" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     MateuszNowakowski2024/ds_ai_portfolio
@@ -215,7 +213,7 @@
       <a href="https://github.com/MateuszNowakowski2024/ds_ai_portfolio.git" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     MateuszNowakowski2024/ds_ai_portfolio
@@ -874,46 +872,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-started-with-cron" class="md-nav__link">
+  <a href="#getting-started-with-crontab" class="md-nav__link">
     <span class="md-ellipsis">
-      Getting Started with cron
+      Getting Started with crontab
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Getting Started with cron">
+    <nav class="md-nav" aria-label="Getting Started with crontab">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#the-crontab-command" class="md-nav__link">
+  <a href="#understanding-the-crontab-syntax" class="md-nav__link">
     <span class="md-ellipsis">
-      The crontab Command
+      Understanding the crontab Syntax
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#the-syntax-of-a-cron-job" class="md-nav__link">
+  <a href="#common-scheduling-patterns" class="md-nav__link">
     <span class="md-ellipsis">
-      The Syntax of a Cron Job
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#common-use-cases-for-cron-jobs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common Use Cases for cron Jobs
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-setting-up-a-cron-job" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example: Setting Up a Cron Job
+      Common Scheduling Patterns
     </span>
   </a>
   
@@ -925,28 +905,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#managing-cron-jobs" class="md-nav__link">
+  <a href="#practical-examples" class="md-nav__link">
     <span class="md-ellipsis">
-      Managing Cron Jobs
+      Practical Examples
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Managing Cron Jobs">
+    <nav class="md-nav" aria-label="Practical Examples">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#checking-logs" class="md-nav__link">
+  <a href="#1-backing-up-files" class="md-nav__link">
     <span class="md-ellipsis">
-      Checking Logs
+      1. Backing Up Files
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#removing-or-disabling-cron-jobs" class="md-nav__link">
+  <a href="#2-sending-email-reminders" class="md-nav__link">
     <span class="md-ellipsis">
-      Removing or Disabling Cron Jobs
+      2. Sending Email Reminders
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-running-system-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Running System Updates
     </span>
   </a>
   
@@ -954,6 +943,24 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-and-managing-cron-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring and Managing cron Jobs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices-for-using-cron" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices for Using cron
+    </span>
+  </a>
   
 </li>
       
@@ -1003,7 +1010,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2025-05-15 00:00:00+00:00" class="md-ellipsis">May 15, 2025</time>
+                        <time datetime="2025-10-02 00:00:00+00:00" class="md-ellipsis">October 2, 2025</time>
                       </div>
                     </li>
                     
@@ -1015,7 +1022,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
                           <span class="md-ellipsis">
                             
-                              3 min read
+                              4 min read
                             
                           </span>
                         </div>
@@ -1044,88 +1051,89 @@
 
 <h1 id="terminal-tutorial-automating-tasks-with-cron-jobs">Terminal Tutorial: Automating Tasks with <code>cron</code> Jobs</h1>
 <h2 id="introduction">Introduction</h2>
-<p>If you've ever found yourself repeating mundane tasks on your computer—such as cleaning up old files, running backups, or sending out regular reports—you might be wondering if there's a way to automate these processes. Enter <code>cron</code>, an incredibly handy Unix utility that allows you to schedule tasks to run at specific intervals. In this tutorial, we’ll explore how you can leverage <code>cron</code> jobs to automate your routine tasks, saving you time and letting you focus on the fun stuff. </p>
+<p>If you've ever found yourself repeatedly performing the same set of tasks on your computer, you’ve probably wished there was a way to automate them. Enter <code>cron</code>: your new best friend for task automation on Unix-based systems. Whether it’s running scripts, backing up files, or sending out reminders, <code>cron</code> jobs can save you time and effort. In this tutorial, we’ll dive into the nitty-gritty of setting up <code>cron</code> jobs, exploring their syntax, scheduling capabilities, and best practices. By the end, you'll be equipped to make your daily workflows not just easier, but also smarter!</p>
 <!-- more -->
 <h2 id="what-is-cron">What is <code>cron</code>?</h2>
-<p>In the simplest terms, <code>cron</code> is a time-based job scheduler in Unix-like operating systems. It enables users to run scripts or commands at predefined times or intervals. Whether it’s daily, weekly, monthly, or even every minute, <code>cron</code> can handle it all. The name <code>cron</code> comes from the Greek word "chronos," meaning time. </p>
-<h2 id="getting-started-with-cron">Getting Started with <code>cron</code></h2>
-<p>To start using <code>cron</code>, you’ll need to access your terminal. You can check if the <code>cron</code> service is running by using the command:</p>
-<pre><code class="language-bash">systemctl status cron
-</code></pre>
-<p>If it’s not running, you can start it with:</p>
-<pre><code class="language-bash">sudo systemctl start cron
-</code></pre>
-<h3 id="the-crontab-command">The <code>crontab</code> Command</h3>
-<p>The heart of <code>cron</code> is the <code>crontab</code> command, which is short for "cron table." This command is used to create, edit, and manage your cron jobs. To view your current cron jobs, you can type:</p>
-<pre><code class="language-bash">crontab -l
-</code></pre>
-<p>To edit your cron jobs, use:</p>
+<p>At its core, <code>cron</code> is a time-based job scheduler in Unix-like operating systems. It allows users to run scripts or commands at specified intervals—be it every minute, hour, day, or even on specific weekdays. The beauty of <code>cron</code> lies in its simplicity and flexibility, making it a go-to tool for system administrators and power users alike.</p>
+<p>The configuration for <code>cron</code> is handled through the <code>crontab</code> (cron table) file, where you specify the tasks you want to automate. Each user on a system can have their own <code>crontab</code>, ensuring that your jobs won't interfere with anyone else's.</p>
+<h2 id="getting-started-with-crontab">Getting Started with <code>crontab</code></h2>
+<p>To start using <code>cron</code>, you first need to access your <code>crontab</code>. Open your terminal and type:</p>
 <pre><code class="language-bash">crontab -e
 </code></pre>
-<p>This will open an editor (usually <code>nano</code> or <code>vi</code>), where you can add new jobs. Each line in your crontab file represents a different scheduled task.</p>
-<h3 id="the-syntax-of-a-cron-job">The Syntax of a Cron Job</h3>
-<p>A cron job follows a specific syntax:</p>
-<pre><code>* * * * * command_to_run
-- - - - -
-| | | | |
-| | | | +---- Day of the week (0-7) (Sunday is both 0 and 7)
-| | | +------ Month (1-12)
-| | +-------- Day of the month (1-31)
-| +---------- Hour (0-23)
-+------------ Minute (0-59)
+<p>This command opens your <code>crontab</code> file in the default text editor. If it’s your first time, you might be prompted to select an editor (nano, vim, etc.).</p>
+<h3 id="understanding-the-crontab-syntax">Understanding the <code>crontab</code> Syntax</h3>
+<p>The syntax for each line in a <code>crontab</code> file is as follows:</p>
+<pre><code>* * * * * /path/to/your/command
 </code></pre>
-<p>For example, if you want to run a script every day at 3 AM, you would write:</p>
-<pre><code>0 3 * * * /path/to/your/script.sh
+<p>Each asterisk represents a time field:</p>
+<ol>
+<li><strong>Minute</strong> - (0 - 59)</li>
+<li><strong>Hour</strong> - (0 - 23)</li>
+<li><strong>Day of Month</strong> - (1 - 31)</li>
+<li><strong>Month</strong> - (1 - 12)</li>
+<li><strong>Day of Week</strong> - (0 - 7) (Sunday is both 0 and 7)</li>
+</ol>
+<p>For example, if you want to run a Python script every day at 3 PM, you'd add the following line:</p>
+<pre><code class="language-bash">0 15 * * * /usr/bin/python3 /path/to/your_script.py
 </code></pre>
-<h3 id="common-use-cases-for-cron-jobs">Common Use Cases for <code>cron</code> Jobs</h3>
+<h3 id="common-scheduling-patterns">Common Scheduling Patterns</h3>
+<p>Here are some common patterns you might find useful:</p>
+<ul>
+<li><strong>Every minute</strong>: <code>* * * * * command</code></li>
+<li><strong>Every hour</strong>: <code>0 * * * * command</code></li>
+<li><strong>Every day at midnight</strong>: <code>0 0 * * * command</code></li>
+<li><strong>Every Sunday at 5 AM</strong>: <code>0 5 * * 0 command</code></li>
+<li><strong>On the 1st of every month at 8 AM</strong>: <code>0 8 1 * * command</code></li>
+</ul>
+<p>You can also use special characters like commas, dashes, and slashes for more complex scheduling:</p>
+<ul>
+<li><strong>Comma</strong>: <code>1,3,5</code> means "run at minute 1, 3, and 5"</li>
+<li><strong>Dash</strong>: <code>1-5</code> means "run every minute from 1 to 5"</li>
+<li><strong>Slash</strong>: <code>*/15</code> means "run every 15 minutes"</li>
+</ul>
+<h2 id="practical-examples">Practical Examples</h2>
+<p>Now that you understand the basics, let’s look at a few practical examples of what you can automate with <code>cron</code>.</p>
+<h3 id="1-backing-up-files">1. Backing Up Files</h3>
+<p>Automating backups is crucial for data integrity. You can schedule a backup script to run every night at 2 AM:</p>
+<pre><code class="language-bash">0 2 * * * /path/to/backup_script.sh
+</code></pre>
+<h3 id="2-sending-email-reminders">2. Sending Email Reminders</h3>
+<p>If you need to send out reminders, you could use a command-line email tool like <code>mail</code>:</p>
+<pre><code class="language-bash">0 9 * * 1-5 echo &quot;Don't forget our meeting!&quot; | mail -s &quot;Weekly Reminder&quot; your_email@example.com
+</code></pre>
+<p>This command sends a reminder every weekday at 9 AM.</p>
+<h3 id="3-running-system-updates">3. Running System Updates</h3>
+<p>Keeping your system updated is a good practice. You could automate updates by running a script every Sunday:</p>
+<pre><code class="language-bash">0 3 * * 0 /path/to/update_script.sh
+</code></pre>
+<h2 id="monitoring-and-managing-cron-jobs">Monitoring and Managing <code>cron</code> Jobs</h2>
+<p>You can list your current <code>cron</code> jobs by running:</p>
+<pre><code class="language-bash">crontab -l
+</code></pre>
+<p>If you need to remove all your <code>cron</code> jobs, you can do so with:</p>
+<pre><code class="language-bash">crontab -r
+</code></pre>
+<p>To check if your <code>cron</code> jobs are running as expected, you can check the system log files located in <code>/var/log/cron</code> or by using <code>journalctl</code> for systems with <code>systemd</code>.</p>
+<h2 id="best-practices-for-using-cron">Best Practices for Using <code>cron</code></h2>
 <ol>
 <li>
-<p><strong>Backups</strong>: Automating backups is one of the most common uses of <code>cron</code>. You can schedule a script to back up your database or important files daily or weekly.</p>
+<p><strong>Logs, Logs, Logs</strong>: Always log the output of your <code>cron</code> jobs to a file. This way, you can troubleshoot any issues that arise. For instance:
+   <code>bash
+   0 2 * * * /path/to/backup_script.sh &gt;&gt; /path/to/backup.log 2&gt;&amp;1</code></p>
 </li>
 <li>
-<p><strong>System Maintenance</strong>: Clearing temporary files or log files can be done automatically. For instance, you might want to delete files older than 30 days in a specific directory.</p>
+<p><strong>Use Absolute Paths</strong>: Always use absolute paths for commands and scripts to avoid path-related issues.</p>
 </li>
 <li>
-<p><strong>Data Fetching</strong>: If you work with APIs or databases, you can set up <code>cron</code> jobs to fetch and update data at regular intervals.</p>
+<p><strong>Test Your Scripts</strong>: Before scheduling a script with <code>cron</code>, run it manually to ensure there are no errors.</p>
 </li>
 <li>
-<p><strong>Email Reports</strong>: Want to send out summaries or reports? You can automate the generation of reports and email them to yourself or your team.</p>
+<p><strong>Consider Environment Variables</strong>: Unlike your terminal, <code>cron</code> jobs might not have the same environment variables. If your script relies on them, you may need to explicitly define them in your <code>crontab</code>.</p>
 </li>
 </ol>
-<h3 id="example-setting-up-a-cron-job">Example: Setting Up a Cron Job</h3>
-<p>Let’s say you have a Python script that checks the status of a website and logs the response time. You can automate this task to run every 10 minutes.</p>
-<ol>
-<li>First, write a simple Python script (<code>check_website.py</code>):</li>
-</ol>
-<pre><code class="language-python">import requests
-import time
-
-url = &quot;http://example.com&quot;
-response = requests.get(url)
-with open(&quot;log.txt&quot;, &quot;a&quot;) as log:
-    log.write(f&quot;{time.ctime()}: {response.status_code}\n&quot;)
-</code></pre>
-<ol>
-<li>Make sure to give execution permission to your script:</li>
-</ol>
-<pre><code class="language-bash">chmod +x check_website.py
-</code></pre>
-<ol>
-<li>Add the cron job by typing <code>crontab -e</code> and adding:</li>
-</ol>
-<pre><code>*/10 * * * * /usr/bin/python3 /path/to/check_website.py
-</code></pre>
-<p>This command will run your script every 10 minutes.</p>
-<h2 id="managing-cron-jobs">Managing Cron Jobs</h2>
-<h3 id="checking-logs">Checking Logs</h3>
-<p>Cron jobs run in the background, and if something goes wrong, you may want to check the log files. Cron logs can typically be found in <code>/var/log/syslog</code> on Debian-based systems or <code>/var/log/cron</code> on Red Hat-based systems. You can filter logs using <code>grep</code>:</p>
-<pre><code class="language-bash">grep CRON /var/log/syslog
-</code></pre>
-<h3 id="removing-or-disabling-cron-jobs">Removing or Disabling Cron Jobs</h3>
-<p>To remove a cron job, simply use <code>crontab -e</code>, delete the line corresponding to the job, and save the file. If you want to temporarily disable it, you can comment it out by adding a <code>#</code> at the beginning of the line.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>Automating tasks with <code>cron</code> jobs is a game-changer for anyone looking to streamline their workflow. Whether you’re a developer, a system administrator, or just someone who wants to save time, mastering <code>cron</code> can significantly enhance your productivity. </p>
-<p>Take some time to think about repetitive tasks in your daily routine and consider how you can automate them with <code>cron</code>. The possibilities are endless, and once you get the hang of it, you’ll wonder how you ever managed without it. So why not give it a try? Your future self will thank you!</p>
+<p>With <code>cron</code>, you have a powerful tool at your fingertips to automate repetitive tasks seamlessly. By understanding its syntax and capabilities, you can simplify your workflow, reduce human error, and free up your time for more enjoyable activities (or more coding!). So go ahead, dive into your <code>crontab</code>, and let automation take the wheel!</p>
+<p>Happy scheduling!</p>
 
 
 
@@ -1146,7 +1154,7 @@ with open(&quot;log.txt&quot;, &quot;a&quot;) as log:
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 22, 2025 11:30:06 UTC">September 22, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 2, 2025 11:24:06 UTC">October 2, 2025</span>
   </span>
 
     
