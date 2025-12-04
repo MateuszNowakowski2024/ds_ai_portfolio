@@ -13,10 +13,8 @@
       
       
       
-        <link rel="prev" href="../../02/the-future-of-data-science-browser-based-model-training-for-everyone/">
+        <link rel="prev" href="../../01/navigating-the-future-ai-agents-and-their-role-in-everyday-automation/">
       
-      
-        <link rel="next" href="../../09/the-rise-of-ai-governance-navigating-the-new-frontier-of-responsible-ai/">
       
       
         
@@ -994,22 +992,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-are-decorators" class="md-nav__link">
+  <a href="#understanding-decorators" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What Are Decorators?
+        Understanding Decorators
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="What Are Decorators?">
+    <nav class="md-nav" aria-label="Understanding Decorators">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#a-simple-example" class="md-nav__link">
+  <a href="#what-are-decorators" class="md-nav__link">
     <span class="md-ellipsis">
       
-        A Simple Example
+        What Are Decorators?
       
     </span>
   </a>
@@ -1033,22 +1031,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#advanced-function-usage-closures-and-first-class-functions" class="md-nav__link">
+  <a href="#creating-your-own-decorators" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Advanced Function Usage: Closures and First-Class Functions
+        Creating Your Own Decorators
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Advanced Function Usage: Closures and First-Class Functions">
+    <nav class="md-nav" aria-label="Creating Your Own Decorators">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#closures" class="md-nav__link">
+  <a href="#a-simple-logging-decorator" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Closures
+        A Simple Logging Decorator
       
     </span>
   </a>
@@ -1056,10 +1054,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#first-class-functions" class="md-nav__link">
+  <a href="#accepting-arguments-in-decorators" class="md-nav__link">
     <span class="md-ellipsis">
       
-        First-Class Functions
+        Accepting Arguments in Decorators
       
     </span>
   </a>
@@ -1072,33 +1070,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#chaining-decorators" class="md-nav__link">
+  <a href="#advanced-function-usage-techniques" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Chaining Decorators
+        Advanced Function Usage Techniques
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Function Usage Techniques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-functoolswraps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using functools.wraps
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#use-cases-for-decorators" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Use Cases for Decorators
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Use Cases for Decorators">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#caching-example" class="md-nav__link">
+  <a href="#leveraging-higher-order-functions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Caching Example
+        Leveraging Higher-Order Functions
       
     </span>
   </a>
@@ -1158,7 +1156,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2025-06-05 00:00:00+00:00" class="md-ellipsis">June 5, 2025</time>
+                        <time datetime="2025-12-04 00:00:00+00:00" class="md-ellipsis">December 4, 2025</time>
                       </div>
                     </li>
                     
@@ -1170,7 +1168,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
                           <span class="md-ellipsis">
                             
-                              4 min read
+                              3 min read
                             
                           </span>
                         </div>
@@ -1199,118 +1197,109 @@
 
 <h1 id="python-coding-tutorial-decorators-and-advanced-function-usage">Python Coding Tutorial: Decorators and Advanced Function Usage</h1>
 <h2 id="introduction">Introduction</h2>
-<p>Hey there, fellow Python enthusiasts! If you're diving into the world of Python, you might have already encountered functions—a fundamental building block of programming. But today, we're going to elevate your function game to a whole new level with decorators and advanced function usage. Decorators are a nifty feature that allows you to modify or enhance the behavior of functions or methods at definition time. They can help you write cleaner code, keep your logic DRY (Don't Repeat Yourself), and make your programs more expressive.</p>
+<p>Welcome, Python enthusiasts! Today, we’re diving into a fascinating corner of Python programming: decorators and advanced function usage. If you're comfortable with functions in Python, you're halfway there. Decorators are a powerful feature that can enhance your functions' capabilities without modifying their code directly. Think of them as wrappers that allow you to add functionality to existing code in a clean and readable way. </p>
 <!-- more -->
-<p>By the end of this post, you’ll have a solid grasp of decorators, how they work, and when to use them. So, grab your favorite coding beverage, and let’s get started!</p>
-<h2 id="what-are-decorators">What Are Decorators?</h2>
-<p>At their core, decorators are functions that take another function as an argument and extend or alter its behavior without explicitly modifying it. This is an excellent way to add functionality to existing code without changing the original function’s code.</p>
-<h3 id="a-simple-example">A Simple Example</h3>
-<p>Let’s start with a basic example. Suppose we want to log the execution time of a function, which is a common requirement in performance testing. Here’s how you might implement it with a decorator:</p>
+<p>In this tutorial, we’ll explore what decorators are, how to create your own, and delve into some advanced function usage techniques that will elevate your Python skills. So, grab your coding goggles, and let’s get started!</p>
+<h2 id="understanding-decorators">Understanding Decorators</h2>
+<h3 id="what-are-decorators">What Are Decorators?</h3>
+<p>In Python, a decorator is a function that takes another function as an argument, adds some functionality to it, and returns a new function. Decorators are often used for logging, enforcing access control, instrumentation, and caching results, among other things. </p>
+<p>Here's a simple example to illustrate the concept:</p>
+<pre><code class="language-python">def my_decorator(func):
+    def wrapper():
+        print(&quot;Something is happening before the function is called.&quot;)
+        func()
+        print(&quot;Something is happening after the function is called.&quot;)
+    return wrapper
+
+@my_decorator
+def say_hello():
+    print(&quot;Hello!&quot;)
+
+say_hello()
+</code></pre>
+<p>When you run this code, you'll see:</p>
+<pre><code>Something is happening before the function is called.
+Hello!
+Something is happening after the function is called.
+</code></pre>
+<p>The <code>@my_decorator</code> syntax is a shorthand that applies the <code>my_decorator</code> function to <code>say_hello</code>, wrapping it in the <code>wrapper()</code> function.</p>
+<h3 id="why-use-decorators">Why Use Decorators?</h3>
+<p>Decorators promote the DRY (Don't Repeat Yourself) principle by allowing you to encapsulate common functionalities that can be reused across different functions. This means less code duplication and easier maintenance.</p>
+<p>For instance, if you have several functions that require logging, you can simply decorate them all with a logging decorator instead of adding logging code to each function individually.</p>
+<h2 id="creating-your-own-decorators">Creating Your Own Decorators</h2>
+<h3 id="a-simple-logging-decorator">A Simple Logging Decorator</h3>
+<p>Let’s create a decorator that logs the execution time of a function. This can be particularly useful for performance monitoring.</p>
 <pre><code class="language-python">import time
 
-def timer_decorator(func):
+def log_execution_time(func):
     def wrapper(*args, **kwargs):
         start_time = time.time()
         result = func(*args, **kwargs)
         end_time = time.time()
-        print(f&quot;Function '{func.__name__}' took {end_time - start_time:.4f} seconds to execute.&quot;)
+        execution_time = end_time - start_time
+        print(f&quot;{func.__name__} executed in {execution_time:.4f} seconds&quot;)
         return result
     return wrapper
 
-@timer_decorator
-def slow_function():
-    time.sleep(2)
-    return &quot;Finished!&quot;
+@log_execution_time
+def example_function(n):
+    time.sleep(n)
 
-slow_function()
+example_function(2)
 </code></pre>
-<p>In this example, <code>timer_decorator</code> is our decorator. The <code>wrapper</code> function inside it calls the original function and measures its execution time, printing the result. The <code>@timer_decorator</code> syntax is a shorthand for applying the decorator to <code>slow_function()</code>.</p>
-<h3 id="why-use-decorators">Why Use Decorators?</h3>
-<ol>
-<li>
-<p><strong>Code Reusability</strong>: Instead of duplicating code for logging or authentication across multiple functions, you can simply apply a decorator.</p>
-</li>
-<li>
-<p><strong>Separation of Concerns</strong>: Keeping your core logic clean while handling cross-cutting concerns (like logging or access control) separately.</p>
-</li>
-<li>
-<p><strong>Enhanced Readability</strong>: By abstracting behavior into decorators, your code becomes cleaner and easier to understand.</p>
-</li>
-</ol>
-<h2 id="advanced-function-usage-closures-and-first-class-functions">Advanced Function Usage: Closures and First-Class Functions</h2>
-<p>To fully appreciate decorators, it helps to understand closures and first-class functions in Python.</p>
-<h3 id="closures">Closures</h3>
-<p>A closure is a nested function that remembers the values of its enclosing scope even after the outer function has finished executing. Here’s a simple example:</p>
-<pre><code class="language-python">def outer_function(msg):
-    def inner_function():
-        print(msg)
-    return inner_function
+<p>When you run this code, it will log how long <code>example_function</code> takes to execute. This is a practical example of how decorators can be used to enhance functionality without cluttering your core logic.</p>
+<h3 id="accepting-arguments-in-decorators">Accepting Arguments in Decorators</h3>
+<p>Sometimes, you may want your decorators to accept arguments. This requires an extra level of nesting. Here’s how you can create a decorator that accepts parameters:</p>
+<pre><code class="language-python">def repeat(num_times):
+    def decorator_repeat(func):
+        def wrapper(*args, **kwargs):
+            for _ in range(num_times):
+                func(*args, **kwargs)
+        return wrapper
+    return decorator_repeat
 
-greet = outer_function(&quot;Hello, World!&quot;)
-greet()  # Outputs: Hello, World!
-</code></pre>
-<p>In this case, <code>inner_function</code> is a closure that captures the variable <code>msg</code> from <code>outer_function</code>.</p>
-<h3 id="first-class-functions">First-Class Functions</h3>
-<p>In Python, functions are first-class citizens, meaning they can be passed around as arguments, returned from other functions, and assigned to variables. This trait allows for powerful functional programming techniques, such as map, filter, and reduce. Here’s a quick rundown:</p>
-<pre><code class="language-python">def square(x):
-    return x * x
-
-numbers = [1, 2, 3, 4, 5]
-squared_numbers = list(map(square, numbers))
-print(squared_numbers)  # Outputs: [1, 4, 9, 16, 25]
-</code></pre>
-<h2 id="chaining-decorators">Chaining Decorators</h2>
-<p>One of the powerful features of decorators is the ability to stack them. You can apply multiple decorators to a single function, enhancing its functionality in layers. For example:</p>
-<pre><code class="language-python">def uppercase_decorator(func):
-    def wrapper(*args, **kwargs):
-        return func(*args, **kwargs).upper()
-    return wrapper
-
-@uppercase_decorator
-@timer_decorator
+@repeat(num_times=3)
 def greet(name):
-    time.sleep(1)
-    return f&quot;Hello, {name}!&quot;
+    print(f&quot;Hello, {name}!&quot;)
 
-print(greet(&quot;Alice&quot;))  # Outputs: Function 'greet' took 1.000x seconds to execute. 'HELLO, ALICE!'
+greet(&quot;Alice&quot;)
 </code></pre>
-<p>In this case, <code>greet</code> is first processed by <code>timer_decorator</code>, and then by <code>uppercase_decorator</code>. </p>
-<h2 id="use-cases-for-decorators">Use Cases for Decorators</h2>
-<p>Now that you have a basic understanding, let's look at some practical use cases:</p>
-<ol>
-<li>
-<p><strong>Logging</strong>: As shown in our initial example, decorators can log function calls or errors without cluttering the function's core logic.</p>
-</li>
-<li>
-<p><strong>Access Control</strong>: You can create decorators that restrict access to certain functions based on user roles or permissions.</p>
-</li>
-<li>
-<p><strong>Caching</strong>: By creating a caching decorator, you can store the results of expensive function calls and return the cached result when the same inputs occur again.</p>
-</li>
-</ol>
-<h3 id="caching-example">Caching Example</h3>
-<pre><code class="language-python">def cache_decorator(func):
-    cache = {}
+<p>In this example, the <code>greet</code> function will be called three times, thanks to our <code>repeat</code> decorator.</p>
+<h2 id="advanced-function-usage-techniques">Advanced Function Usage Techniques</h2>
+<h3 id="using-functoolswraps">Using <code>functools.wraps</code></h3>
+<p>When you create a decorator, the metadata of the original function (like its name and docstring) is lost. To preserve this, you can use <code>functools.wraps</code>:</p>
+<pre><code class="language-python">from functools import wraps
 
-    def wrapper(*args):
-        if args in cache:
-            return cache[args]
-        result = func(*args)
-        cache[args] = result
-        return result
+def my_decorator(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        print(&quot;Before the function call&quot;)
+        return func(*args, **kwargs)
     return wrapper
-
-@cache_decorator
-def fibonacci(n):
-    if n &lt;= 1:
-        return n
-    return fibonacci(n-1) + fibonacci(n-2)
-
-print(fibonacci(10))  # Outputs: 55
 </code></pre>
+<h3 id="leveraging-higher-order-functions">Leveraging Higher-Order Functions</h3>
+<p>Functions in Python are first-class citizens, meaning you can pass them as arguments, return them from other functions, and assign them to variables. This property allows for some creative programming patterns. </p>
+<p>Consider a scenario where you want to develop a simple calculator:</p>
+<pre><code class="language-python">def calculator(operator):
+    def add(x, y):
+        return x + y
+
+    def subtract(x, y):
+        return x - y
+
+    if operator == &quot;add&quot;:
+        return add
+    elif operator == &quot;subtract&quot;:
+        return subtract
+
+add_func = calculator(&quot;add&quot;)
+print(add_func(5, 3))  # Output: 8
+</code></pre>
+<p>Here, <code>calculator</code> returns different functions based on the input operator, showcasing the flexibility of higher-order functions.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>And there you have it! We've explored the fascinating world of decorators and advanced function usage in Python. From understanding the fundamentals of decorators to applying them in various practical scenarios, you now have the tools to write cleaner, more efficient code. Whether for logging, access control, or caching, decorators can enhance your coding experience.</p>
-<p>As you continue your Python journey, don’t hesitate to experiment with your own decorators. The ability to modify function behavior dynamically opens up a world of possibilities. Happy coding, and until next time, keep pushing those Python boundaries!</p>
+<p>Decorators and advanced function usage in Python are not just nifty tricks; they are powerful tools that can significantly improve your code's structure and readability. By understanding and utilizing decorators, you can write cleaner, more maintainable code that adheres to the DRY principle. Moreover, mastering advanced function techniques will open up new avenues of programming creativity.</p>
+<p>Whether you’re using decorators for logging, enforcing access control, or even for simple tasks like repetition, the power is in your hands. As you practice implementing these concepts, you’ll find that they can have a profound impact on your coding style and efficiency.</p>
+<p>So, go ahead and experiment with decorators and advanced functions in your projects. Who knows? You might just discover a new favorite programming pattern that enhances your workflow! Happy coding!</p>
 
 
 
@@ -1331,7 +1320,7 @@ print(fibonacci(10))  # Outputs: 55
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 27, 2025 11:28:45 UTC">November 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 4, 2025 11:30:02 UTC">December 4, 2025</span>
   </span>
 
     
